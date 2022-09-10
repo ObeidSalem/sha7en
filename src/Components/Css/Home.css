@@ -1,0 +1,83 @@
+.home_Header{
+    /* background-image: linear-gradient(angle, red, yellow); */
+    background-image: linear-gradient(to right,#1B7CEC, #005CC6);
+    display: flex;
+
+}
+
+.page_padding{
+    padding: 50px 130px 90px 130px;
+}
+
+.vehicles_title{
+    margin-bottom: 30px;
+}
+
+.text_align_left{
+    text-align: left;
+    margin-right: 50px;
+
+}
+
+.header_img{
+    width: 350px; 
+    height: 350px;
+    border-radius: 30px;
+    margin-left: 50px;
+    object-fit: cover;
+
+}
+
+.home_vehicles{
+    background-color: #f9f9f9
+}
+
+
+.vehicles__container{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: row;
+
+}
+
+.vehicle__container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    max-width: 30%;
+    min-width: 25%;
+    background-color: white;
+    justify-content:space-between;
+    margin: 1% 1%;
+    padding: 2%;
+    border-radius: 20px;
+    flex: 1 11em;
+
+    -webkit-box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,0.2);
+        -moz-box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,0.2);
+            box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,0.2);
+}
+
+
+.vehicle__content> .vehicle__image {
+    height: 200px;
+    max-width: 100%;
+    object-fit: cover;
+    margin: 0px;
+    
+    
+}
+
+
+
+.vehicle__container:focus,
+.vehicle__container:hover {
+    -webkit-box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,1);
+       -moz-box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,1);
+            box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,1);
+}
+
+
+
