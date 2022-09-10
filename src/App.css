@@ -1,7 +1,9 @@
 :root {
   --primeblue: #1B7CEC;
   --primeblack: #333;
-  --whiteshadow: #cce7ff
+  --whiteshadow: #cce7ff;
+  --white: #ffffff;
+  --yellow: #ECE41B;
 }
 
 * {
@@ -11,6 +13,19 @@
   transition-property: all;
   transition-duration: .6s;
   transition-timing-function: ease;
+}
+
+.white_font{
+  color: var(--white);
+}
+
+.black_font{
+  color: var(--primeblack);
+}
+
+.yellow_font{
+  color: var(--yellow);
+
 }
 
 .App {
