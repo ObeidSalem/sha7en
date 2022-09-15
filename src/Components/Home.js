@@ -33,47 +33,7 @@ const Home = ({vehicles}) => {
                     />
                 </div>
                 <div className="vehicles__container">
-                    {/* <vehicleList 
-                        refReports={refReports} 
-                        vehicles={vehicles.filter(value => {
-                            if ( Searchterm ==""){
-                                return value
-
-                            } else if (value.title.toLocaleLowerCase().includes(Searchterm.toLocaleLowerCase())){
-                                return value
-                            }
-                            else if (value.author.toLocaleLowerCase().includes(Searchterm.toLocaleLowerCase())){
-                                return value
-                            }
-                            else if (value.owner.toLocaleLowerCase().includes(Searchterm.toLocaleLowerCase())){
-                                return value
-                            }
-                            else if (value.category.toLocaleLowerCase().includes(Searchterm.toLocaleLowerCase())){
-                                return value
-                            }
-                        })}
-
-                            //     if(FilterCatNov == true){
-                            //     //    SetSFilterCatNov (true => false)
-                            //     FilterCatNov ? SetSFilterCatNov(false): SetSFilterCatNov(true)
-                            //         console.log(FilterCatNov)
-
-                            //         return(value.category.Novels)
-
-                            // } else if (FilterCatStu == true){
-                            //     // SetSFilterCatStu (false)
-                            //     return(value.category.StudyMaterials)
-
-                            // } else if (FilterCatOth == true){
-                            //     // SetSFilterCatOth (false)
-                            //     return(value.category.Others)
-
-                            // }  else if (FilterCatX == true){
-                            //     // useState({FilterCatX: false});
-                            //     // onChange={(e) => {FilterCatX (false)}};
-                            //     return value
-                            // }          
-                    />  */}
+                
                 </div>
             </div>
 

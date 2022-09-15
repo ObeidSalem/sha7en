@@ -1,13 +1,23 @@
 // import './Css/HomeVehiclesList.css';
-// import VehiclePopup from './Components/VehiclePopup';
+import CarModelPopup from './CarModelPopup';
+import {useState} from 'react'
 
 
 const HomeVehiclesList = ({vehicles}) => {
+
+    const [targetBtn, setTargetBtn] = useState()
+    const [modelsBtnPopUp, setModelsBtnPopUp] = useState(false)
+
     return ( 
         <>
             {vehicles.map(vehicle =>(
                 <div className="vehicle__container" key={vehicle.id} id={vehicle.id}>
-                    <div className="vehicle__content">
+                    <div className="vehicle__content"
+                        onClick={(()=>{
+                            setTargetBtn(vehicle); 
+                            setModelsBtnPopUp(true)
+                        })} 
+                    >
                         <img className="vehicle__image" 
                             src={vehicle.image}
                             onError={(e)=>{e.target.onerror = null; e.target.src="/images/vehicle_cover_alt.jpg"}}
@@ -17,25 +27,11 @@ const HomeVehiclesList = ({vehicles}) => {
                         {vehicle.details}
                         </h3>
                     </div>
-                    {/* <VehiclePopup 
-                        // description={description} refReports={refReports} book={targetBtn} trigger={reportBtnPopUp} setTrigger={setReportBtnPopUp}
-                    >
-                        <h3>Report</h3>
-                        <hr></hr>
-                        <form>
-                            <textarea  type="textarea" placeholder="Description:" ></textarea > 
-                            <textarea
-                                // className="input__style"   
-                                placeholder="Description:"
-                                rows="4" cols="50"
-                                type="text"
-                                value={description}
-                                onChange={(e) => {setDescription(e.target.value)}}
-                            />
-                            <br></br>
-                            <br></br>
-                        </form>
-                    </VehiclePopup> */}
+                    <CarModelPopup 
+                        vehicle={targetBtn} 
+                        trigger={modelsBtnPopUp} 
+                        setTrigger={setModelsBtnPopUp}>
+                    </CarModelPopup>
                 </div>
             ))}
         </>

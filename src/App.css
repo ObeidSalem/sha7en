@@ -28,6 +28,24 @@
 
 }
 
+.blue_font{
+  color: var(--primeblue);
+}
+
+.general_shadow{
+  -webkit-box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,1);
+    -moz-box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,1);
+        box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,1);
+}
+
+.white_bg{
+ background-color: var(--white);
+}
+
+.flex{
+  display: flex;
+}
+
 .App {
   /* font-family: Arial, Helvetica, sans-serif, sans-serif;; */
   text-align: center;
