@@ -18,7 +18,7 @@
     top: 40px;
     padding: 32px;
     width: 100%;
-    max-width: 700px;
+    max-width: 1000px;
     background-color: #F9F9F9;
     border-radius: 10px;
     z-index: 5;
@@ -66,41 +66,36 @@
 }
 
 .popup__model__container div{
-    background-color: #fff;
+    /* background-color:    #fff; */
 
 
 }
 
 .popup__model{
-    width: fill;
-    padding: 10px;
+    width: 300px;
+    padding: 15px;
+}
+
+.popup__year{
+    padding: 10px 12px;
+    
 }
 
 .popup__title{
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .popup__title__image{
     height: 80px;
+    border-radius: 10px;    
+
 } 
-
-.carousel{
-    cursor: grab;
-    background: rgb(230, 173, 173);
-    overflow: hidden;
-}
-
-.inner__carousel{
-    display: flex;
-    background: lightblue
-}
-
 .popup__model__item{
-    min-height: 5rem;
-    /* min-width: 10rem; */
+    min-height: 20rem;
+    min-width:   50rem;
     padding: 10px;
-    background-color: #fff;
 }
 
 .popup__model__image{
@@ -110,6 +105,22 @@
     object-fit:contain;
 
 }
+
+.carousel{
+    cursor: grab;
+    background-color: #fff;
+    /* width: 100%; */
+    overflow: hidden;
+}
+
+.inner__carousel{
+    display: flex;
+    width: 100%;
+    background-color: #fff;
+    /* height: 50vh; */
+
+}
+
 
 
 
