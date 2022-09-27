@@ -1,0 +1,62 @@
+.charger__header__container{
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 30px 100px;
+    
+}
+
+.charger__cable__container{
+    padding: 30px;
+    background-color: var(--white);  
+    border-radius: 10px  
+}
+
+.charger__header__image{
+    max-width: 400px;
+}
+
+.charger__header__content{
+    max-width: 50%;
+}
+
+.steps__container{
+    width: 32%;
+}
+
+.input__container{
+    flex-direction: column;
+    align-items: flex-start
+}
+
+.input__container label{
+    padding: 20px 0px 10px 5px
+}
+
+.input__container input{
+    padding: 10px 10px ;
+    border-radius: 5px;
+    border: 0.5px solid #bbb;
+    width: 100%;
+
+    max-width: 79vw;
+    margin-right: 10px;
+
+}
+
+.inner__input__container{
+    width: 100%;
+    margin-right: 10px;
+}
+
+@media (max-width:1160px) {
+    .charger__header__container{
+        margin: 30px 20px;
+        
+    }
+
+    .charger__header__content{
+        max-width: 100%;
+    }
+}

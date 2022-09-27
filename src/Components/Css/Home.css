@@ -29,7 +29,8 @@
 }
 
 .home_vehicles{
-    background-color: #f9f9f9
+    background-color: #f9f9f9;
+    width: 82%
 }
 
 
@@ -38,6 +39,7 @@
     display: flex;
     flex-wrap: wrap; 
     flex-direction: row;
+    justify-content: space-between;
 
 }
 
@@ -60,6 +62,11 @@
             box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,0.2);
 }
 
+.charger__container{
+    max-width: 50%;
+
+}
+
 
 .vehicle__content> .vehicle__image {
     height: 200px;
@@ -80,5 +87,88 @@
             box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,1);
 }
 
+
+
+@media (max-width:1160px) {
+    .page_padding{
+        padding: 50px 20px 50px 20px;
+    }
+
+    .left_Header {
+        margin: 0 0;
+        padding: 0;
+    }
+
+    .header_logo {
+        width: 150px;
+    }
+
+    .header_slogan {
+        font-size: 1.2rem;
+    }
+
+    .header_description {
+        font-size: 1.1rem;
+    }
+
+    .header_img{
+        width: 150px; 
+        height: 150px;
+        border-radius: 20px;
+        margin-left: 10px;    
+    }
+
+
+
+
+
+    .vehicles_title{
+        font-size: 1.4rem;    
+    }
+
+    .home_vehicles{
+        width: 90%
+    }
+
+    
+    .vehicle__container{
+        max-width: 42%;
+        min-width: 35%
+    }
+    
+    /* .charger__container{
+        max-width: 50%;
+    
+    } */
+    
+    
+    .vehicle__content> .vehicle__image {
+        height: 150px;        
+    }
+    
+
+
+
+
+
+
+    .h1__text{
+        font-size: 1.6rem;
+    }
+    
+    .h2__text{
+        font-size: 1.3rem;
+    }
+
+    .h3__text{
+        font-size: 1.1rem;
+    }
+
+    .p__text{
+        font-size: 0.9rem;
+
+    }
+
+}
 
 

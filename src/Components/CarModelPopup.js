@@ -2,14 +2,17 @@ import React from 'react'
 import {motion} from 'framer-motion';
 import { useParams } from 'react-router'
 import {useRef, useEffect, useState} from 'react'
+import { Link } from 'react-router-dom'
 
 import "./Css/Popup.css"
 
 const CarModelPopup = (props) => {
     // console.log(props)
-    // const [models1, setModels] = useState(props.vehicle.models)
+    // const [models1, setModels] = useState(props.vehicle.vehModels)
     
     const [selectedModel, setSelectedModel] = useState();
+    const [selectedYear, setSelectedYear] = useState();
+
     const [width, setWidth] = useState(600);
     const carousel = useRef();
 
@@ -23,7 +26,7 @@ const CarModelPopup = (props) => {
 
     function getManufactureYears() {
         console.log("have been called");
-        Years = props.vehicle.models.filter(function (model) {
+        Years = props.vehicle.vehModels.filter(function (model) {
             // console.log(model);
             return model.modelName === "Model x";
     }).map(function (model) {
@@ -37,9 +40,13 @@ const CarModelPopup = (props) => {
     return ( props.trigger) ?  ( 
         <div className="popup" >
             <div className="popup__container left">
+                <button onClick={() => props.setTrigger(false)} className="close__button">X</button>
+                { props.children }
+                <br></br>
+
                 <div className="popup__title">
                     <div>
-                        <h2>{props.vehicle.brand}</h2>
+                        <h2>{props.vehicle.vehBrand}</h2>
                         <br />
                         <p className="blue_font">Choose the Vehicle Model</p>
                     </div>
@@ -52,10 +59,9 @@ const CarModelPopup = (props) => {
                 <hr></hr>
                 <br></br>
                 <div className="popup__model__container">
-                    {/* <h5 className="general_shadow white_bg">(((</h5> */}
                         <motion.div ref={carousel} className="carousel">
                             <motion.div drag="x" dragConstraints={{right: 0, left: -width}} whileTap={{cursor: "grabbing"}} className="inner__carousel">
-                                {props.vehicle.models.map((model, i) =>{
+                                {props.vehicle.vehModels.map((model, i) =>{
                                 return (
                                     <motion.div 
                                         key={model.modelName}
@@ -75,7 +81,6 @@ const CarModelPopup = (props) => {
                                 })}
                             </motion.div>
                         </motion.div>
-                    {/* <h5 className="general_shadow white_bg">)))</h5> */}
                 </div>
                 <br></br>
                 {selectedModel ? 
@@ -86,7 +91,13 @@ const CarModelPopup = (props) => {
                             <motion.div drag="x" dragConstraints={{right: 0, left: -width}} whileTap={{cursor: "grabbing"}} className="inner__carousel">
                                 {Years.map((year) =>{
                                     return (
-                                        <motion.div >
+                                        <motion.div 
+                                        onClick={(e) => {
+                                            // console.log(e);
+                                            // console.log(e.target.outerText);
+                                            setSelectedYear(e.target.outerText)
+                                        }}
+                                        >
                                             <h5 className="popup__year general_shadow">{year}</h5> 
                                             <br />
                                         </motion.div>
@@ -97,9 +108,16 @@ const CarModelPopup = (props) => {
                     </div>
                 </motion.div>
                 : "" }
-                <br></br>
-                <button onClick={() => props.setTrigger(false)} className="close__button">CANCEL</button>
-                { props.children }
+                {selectedModel && selectedYear ? 
+                <motion.div className="">
+                    <br/>
+                    <div className="popup__model__container">
+                        <button className="btn btn__secondary general_shadow" onClick={() => props.setTrigger(false)} >Cancel</button>
+                        <Link className="btn btn__primary general_shadow" to="/sha7en/Chargers" modelName={selectedModel}>Next</Link>
+
+                    </div>
+                </motion.div>
+                : "" }
             </div>
         </div>
     ) : "";
