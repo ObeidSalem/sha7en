@@ -37,6 +37,7 @@ const CarModelPopup = (props) => {
     console.log(Years);
 
     }
+    
     return ( props.trigger) ?  ( 
         <div className="popup" >
             <div className="popup__container left">
@@ -108,12 +109,37 @@ const CarModelPopup = (props) => {
                     </div>
                 </motion.div>
                 : "" }
+                {selectedModel ? 
+                <motion.div className="">
+                    <h2>Vehicle Color</h2>
+                    {/* <div className="popup__model__container">
+                    <motion.div ref={carousel} className="carousel">
+                            <motion.div drag="x" dragConstraints={{right: 0, left: -width}} whileTap={{cursor: "grabbing"}} className="inner__carousel">
+                                {Years.map((year) =>{
+                                    return (
+                                        <motion.div 
+                                        onClick={(e) => {
+                                            // console.log(e);
+                                            // console.log(e.target.outerText);
+                                            setSelectedYear(e.target.outerText)
+                                        }}
+                                        >
+                                            <h5 className="popup__year general_shadow">{year}</h5> 
+                                            <br />
+                                        </motion.div>
+                                    );
+                                })}
+                            </motion.div>
+                        </motion.div>
+                    </div> */}
+                </motion.div>
+                : "" }
                 {selectedModel && selectedYear ? 
                 <motion.div className="">
                     <br/>
                     <div className="popup__model__container">
                         <button className="btn btn__secondary general_shadow" onClick={() => props.setTrigger(false)} >Cancel</button>
-                        <Link className="btn btn__primary general_shadow" to="/sha7en/Chargers" modelName={selectedModel}>Next</Link>
+                        <Link to="/sha7en/Chargers" modelName={selectedModel}><button className="btn btn__primary general_shadow" >Next</button></Link>
 
                     </div>
                 </motion.div>

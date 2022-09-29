@@ -73,12 +73,31 @@
 
 .popup__model{
     width: 300px;
+    margin: 5px;
     padding: 15px;
+    border-radius: 0px 0px 5px 5px;
+    border: solid 1px #eee; 
 }
+
+.popup__model:hover, .popup__year:hover{
+    border: solid 1px #cbcbcb; 
+}
+
+.popup__model:active, .popup__year:active  {
+    border: solid 1px var(--primeblue); 
+}
+/* .popup__model:focus  {
+    border: solid 5px #3d2f7e; 
+} */
+/* .popup__model:target {
+    border: solid 5px #3d2f7e; 
+} */
 
 .popup__year{
     padding: 10px 12px;
-    
+    margin: 5px;
+    border-radius: 2px;
+    border: solid 1px #eee; 
 }
 
 .popup__title{

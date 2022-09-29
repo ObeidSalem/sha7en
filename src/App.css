@@ -1,6 +1,7 @@
 :root {
   --primeblue: #1B7CEC;
   --primeblack: #333;
+  --gray: #646464;
   --whiteshadow: #cce7ff;
   --white: #ffffff;
   --yellow: #ECE41B;
@@ -24,6 +25,10 @@
   color: var(--primeblack);
 }
 
+.gray_font{
+  color: #646464;
+}
+
 .yellow_font{
   color: var(--yellow);
 
@@ -31,6 +36,15 @@
 
 .blue_font{
   color: var(--primeblue);
+}
+
+.underline{
+  text-decoration: underline;
+
+}
+
+.pointer{
+  cursor: pointer;
 }
 
 .general_shadow{
@@ -90,9 +104,7 @@ html, body{
 }
 
 .btn__secondary{
-  background-color: var(--white);
-  border:solid 0px var(--primeblue);
-  
+  background-color: var(--white);  
 }
 
 .unbold {
@@ -103,6 +115,18 @@ html, body{
   border-radius: 100px;
 }
 
+.fit__content{
+  width: fit-content;
+
+}
+
+.margin__top{
+  margin-top: 10px;
+}
+
+#btn__checkout{
+  width: fill;
+}
 
 @media (max-width:1160px) {
   .btn{

@@ -1,0 +1,24 @@
+.auth__card__container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 30px;
+}
+
+#btn__checkout {
+    border:solid 0.5px var(--gray);
+
+}
+
+@media (max-width:1160px) {
+
+    .auth__content{
+        margin: 30px 20px;
+
+    }
+
+    .auth__card__container{
+        width: fill;
+    }
+    
+}

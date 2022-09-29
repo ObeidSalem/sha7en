@@ -12,10 +12,23 @@ import Vehicles from './Components/Vehicles';
 import Chargers from './Components/Chargers';
 import ChargerDetails from './Components/ChargerDetails';
 import Summary from './Components/Summary';
+import Checkout from './Components/Checkout';
+import Auth from './Components/Auth';
 import NotFound from './Components/NotFound';
 
 
 const App = () => {
+
+
+//   vehicles 
+// [
+// {zoho_correlation_id:"20097163889", brand_id:"123", brand_name: "Tesla", vehModels:[
+//   {zoho_correlation_id:"2009716383729", modelName:'Model X', productionYear:[2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023], image:'URL', vehicle_id:'veh-123', colors:[{color_name:'Red', color_img:'URL'},{color_name:'Black', color_img:'URL'}]},                                      
+//   {zoho_correlation_id:"2009716386382", modelName:'Model Y', productionYear:[2019, 2020, 2021, 2022, 2023], image:'URL', vehicle_id:'veh-123', colors:[{color_name:'Red', color_img:'URL'},{color_name:'Black', color_img:'URL'}]},
+//   {zoho_correlation_id:"2009716388391", modelName:'Model 3', productionYear:[2018, 2019, 2020, 2021, 2022, 2023], image:'URL', vehicle_id:'veh-123', colors:[{color_name:'Red', color_img:'URL'},{color_name:'Black', color_img:'URL'}]},
+//   {zoho_correlation_id:"2009716388392", modelName:'Model S', productionYear:[2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023], image:'URL', vehicle_id:'veh-123', colors:[{color_name:'Red', color_img:'URL'},{color_name:'Black', color_img:'URL'}]},
+// ], details: 'Extra Details', image: 'URL'},
+// ]
 
   const [vehicles, setVehicles] = useState([
     {id:"123", vehBrand: "Tesla", vehModels:[
@@ -77,7 +90,9 @@ const App = () => {
               <Route path='/sha7en/Vehicles' element={<Vehicles/>} />
               <Route path='/sha7en/Chargers' element={<Chargers chargers={chargers}  />} />
               <Route path='/sha7en/Chargers/:id' element={<ChargerDetails chargers={chargers} />}  />
-              <Route path='/sha7en/Summary' element={<Summary/>} />
+              <Route path='/sha7en/Summary/:id' element={<Summary chargers={chargers} />} />
+              <Route path='/sha7en/Checkout/:id' element={<Checkout chargers={chargers}/>} />
+              <Route path='/sha7en/login/:id' element={<Auth chargers={chargers}/>} />
               {/* <Route path='/sha7en/*' element={<NotFound/>} /> */}
 
           </Routes>

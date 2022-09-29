@@ -136,10 +136,9 @@
         min-width: 35%
     }
     
-    /* .charger__container{
-        max-width: 50%;
-    
-    } */
+    .charger__container{
+        max-width: 100%;
+    }
     
     
     .vehicle__content> .vehicle__image {

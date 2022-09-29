@@ -38,17 +38,22 @@
     padding: 10px 10px ;
     border-radius: 5px;
     border: 0.5px solid #bbb;
-    width: 100%;
+    width: fill;
 
     max-width: 79vw;
+}
+
+.margin_right{
     margin-right: 10px;
 
 }
 
 .inner__input__container{
-    width: 100%;
-    margin-right: 10px;
+    width: fill;
+    /* margin-right: 10px; */
 }
+
+
 
 @media (max-width:1160px) {
     .charger__header__container{
@@ -56,7 +61,12 @@
         
     }
 
+    .inner__input__container {
+        width: 50%;
+    }
+
     .charger__header__content{
         max-width: 100%;
     }
+
 }

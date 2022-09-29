@@ -36,7 +36,7 @@ const ChargerDetails = ({chargers}) => {
 
     const charger = chargerArr[0];
 
-    console.log(charger.cable_setups)
+    // console.log(charger.cable_setups)
 
 
     return ( 
@@ -144,7 +144,7 @@ const ChargerDetails = ({chargers}) => {
                             <div className="flex inner__input__container ">
 
                             <input
-                                className="input__style"   
+                                className="input__style margin_right"   
                                 placeholder="Apartment"
                                 type="text"
                                 value={Apartment}
@@ -153,7 +153,7 @@ const ChargerDetails = ({chargers}) => {
                                 }}
                                 required 
                                 /><input
-                                className="input__style"   
+                                className="input__style "   
                                 placeholder="Villa"
                                 type="text"
                                 value={Villa}
@@ -169,7 +169,7 @@ const ChargerDetails = ({chargers}) => {
                             <div className="flex inner__input__container ">
 
                             <input
-                                className="input__style"   
+                                className="input__style margin_right"   
                                 placeholder="Owned"
                                 type="text"
                                 value={Owned}
@@ -323,7 +323,8 @@ const ChargerDetails = ({chargers}) => {
                                     setBlueFont3("");
                                 }} 
                                 >Back to step 2</button>
-                                <Link to="/sha7en/Summary/">
+                            
+                                <Link to={`/sha7en/Summary/${charger.id}`}>
                                     <button className="btn btn__primary general_shadow p__text" 
                                     onClick={() => {
                                         setStep1(false); 
