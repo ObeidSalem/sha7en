@@ -8,7 +8,7 @@ const Summary = ({chargers}) => {
     const { id } = useParams();
 
     const chargerArr = chargers.filter(charger => {
-        return charger.id === id;
+        return charger.charger_id === id;
     });
 
     const charger = chargerArr[0];
@@ -65,7 +65,7 @@ const Summary = ({chargers}) => {
                         <h3 className="unbold ">Total</h3>
                         <h3 className="unbold ">AED50</h3>
                     </div>
-                    <Link to={`/sha7en/login/${charger.id}`}>
+                    <Link to={`/sha7en/login/${charger.charger_id}`}>
                         <button id="btn__checkout" className="btn btn__primary margin__top" 
                         onClick={() => {
                         }} 

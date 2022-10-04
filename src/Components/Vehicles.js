@@ -4,7 +4,7 @@
 const Vehicles = () => {
     return ( 
         <>
-            <h1>Vehicles</h1>
+            <h1>ABOUT US</h1>
         </>
      );
 }

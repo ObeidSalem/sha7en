@@ -8,7 +8,7 @@ const Auth = ({chargers}) => {
     const { id } = useParams();
 
     const chargerArr = chargers.filter(charger => {
-        return charger.id === id;
+        return charger.charger_id === id;
     });
 
     const charger = chargerArr[0];
@@ -54,7 +54,7 @@ const Auth = ({chargers}) => {
                                 />
                             </div>
                         {/* <br/> */}
-                        <Link to={`/sha7en/Checkout/${charger.id}`}>
+                        <Link to={`/sha7en/Checkout/${charger.charger_id}`}>
                             <button id="btn__checkout" className="btn btn__primary margin__top" 
                                 onClick={() => {
                                 }} 

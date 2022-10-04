@@ -2,7 +2,9 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    margin-top: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
 }
 
 #btn__checkout {

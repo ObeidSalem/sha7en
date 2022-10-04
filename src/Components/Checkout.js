@@ -8,7 +8,7 @@ const Checkout = ({chargers}) => {
     const { id } = useParams();
 
     const chargerArr = chargers.filter(charger => {
-        return charger.id === id;
+        return charger.charger_id === id;
     });
 
     const charger = chargerArr[0];

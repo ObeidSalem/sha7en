@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Css/NavBar.css';
 import logo from '../images/Sha7enLogo_200.png'
+import { Icon } from '@iconify/react';
 
 
 const NavBar = () => {
@@ -10,9 +11,12 @@ const NavBar = () => {
                 <div className="nav_links">
                     <Link className="nav_item" to="/sha7en/"><img className="nav_logo" src={logo} width="150" alt='logo'/></Link>
                     <div className="nav_links_left">
-                        <Link className="nav_item" to="/sha7en/About">About</Link>
-                        <Link className="nav_item" to="/sha7en/Vehicles">Vehicles</Link>
-                        <Link className="nav_item" to="/sha7en/Partners">Partners</Link>
+                        <Link className="nav_item" to="/sha7en/Home">Home</Link>
+                        <Link className="nav_item" to="/sha7en/Vehicles">About Us</Link>
+                        <Link className="nav_item" to="/sha7en/Partners">Contact Ue</Link>
+                        <Link className="nav_item" to="/sha7en/login/123">
+                            <Icon className="auth_icon" icon="healthicons:ui-user-profile-outline" />
+                        </Link>
                     </div>
                 </div>
             </div>

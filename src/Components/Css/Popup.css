@@ -79,11 +79,11 @@
     border: solid 1px #eee; 
 }
 
-.popup__model:hover, .popup__year:hover{
+.popup__model:hover, .popup__color:hover, .popup__year:hover{
     border: solid 1px #cbcbcb; 
 }
 
-.popup__model:active, .popup__year:active  {
+.popup__model:active, popup__color:active, .popup__year:active  {
     border: solid 1px var(--primeblue); 
 }
 /* .popup__model:focus  {
@@ -99,6 +99,16 @@
     border-radius: 2px;
     border: solid 1px #eee; 
 }
+
+.popup__color{
+    padding: 10px 10px;
+    margin: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: solid 1px #eee; 
+}
+
 
 .popup__title{
     display: flex;

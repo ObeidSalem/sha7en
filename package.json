@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "@iconify/react": "^4.0.0",
     "gh-pages": "^4.0.0"
   }
 }

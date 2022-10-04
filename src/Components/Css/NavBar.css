@@ -8,7 +8,7 @@
   
   .navbar_container{
     width: 100%;
-    margin: 0 100px;
+    margin: 0 80px;
     display: flex;
     flex-direction: row;
     justify-content:flex-end;
@@ -33,13 +33,11 @@
   .nav_item:link {
     text-decoration: inherit;
     color: inherit;
-    cursor: auto;
 }
 
 .nav_item:visited {
     text-decoration: inherit;
     color: inherit;
-    cursor: auto;
 }
   
   .nav_logo{
@@ -49,6 +47,10 @@
   .navbar it:hover {
     color: var(--primeblue);
   }
+
+  .auth_icon{
+    width: 1.2rem;
+  }
   
   @media (max-width:1160px) {
     .navbar_container{
@@ -57,7 +59,7 @@
     }
   
     .nav_logo{
-      width: 100px;
+      width: 80px;
     }
   
     .nav_item{

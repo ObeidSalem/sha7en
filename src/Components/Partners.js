@@ -4,7 +4,7 @@
 const Partners = () => {
     return ( 
         <>
-            <h1>Partners</h1>
+            <h1>CONTACT US</h1>
         </>
      );
 }

@@ -10,9 +10,9 @@ const ChargerDetails = ({chargers}) => {
     const [step2, setStep2] = useState(false);
     const [step3, setStep3] = useState(false);
 
-    const [Apartment, setApartment] = useState("");
-    const [Villa, setVilla] = useState("");
-    const [Owned, setOwned] = useState("");
+    const [selectedCable, setSelectedCable] = useState("");
+    const [HouseType, setHouseType] = useState("");
+    const [HouseOwnership, setHouseOwnership] = useState("");
     const [Rental, setRental] = useState("");
     const [Address, setAddress] = useState("");
     const [Note, setNote] = useState("");
@@ -31,7 +31,7 @@ const ChargerDetails = ({chargers}) => {
     const { id } = useParams();
 
     const chargerArr = chargers.filter(charger => {
-        return charger.id === id;
+        return charger.charger_id === id;
     });
 
     const charger = chargerArr[0];
@@ -81,6 +81,10 @@ const ChargerDetails = ({chargers}) => {
                             <br/>
                             <hr/>
                             <br/>
+                            <div className="text_align_left">
+                                <label className="">Cable Type: {selectedCable}</label>
+                            </div>
+                            <br/>
                             <motion.div drag="x" dragConstraints={{right: 0, left: -width}} whileTap={{cursor: "grabbing"}} className="inner__carousel">
                                 {charger.cable_setups.map((cable, i) =>{
                                     return (
@@ -89,7 +93,7 @@ const ChargerDetails = ({chargers}) => {
                                         onClick={(e) => {
                                             // console.log(e);
                                             // console.log(e.target.outerText);
-                                            // setSelectedcable(e.target.outerText)
+                                            setSelectedCable(e.target.outerText)
                                         }}
                                         >
                                         <img className="popup__model__image" 
@@ -140,53 +144,48 @@ const ChargerDetails = ({chargers}) => {
                         <br/>
                         <hr/>
                         <div className="flex input__container">
-                            <label className="">House Type </label>
+                            <label className="">House Type: {HouseType} </label>
                             <div className="flex inner__input__container ">
-
-                            <input
-                                className="input__style margin_right"   
-                                placeholder="Apartment"
-                                type="text"
-                                value={Apartment}
-                                onChange={(e) => {
- 
-                                }}
-                                required 
-                                /><input
-                                className="input__style "   
-                                placeholder="Villa"
-                                type="text"
-                                value={Villa}
-                                onChange={(e) => {
-  
-                                }}
-                                required 
+                                <input 
+                                    className="btn btn__secondary input__style margin_right gray_font text_align_left p__text"
+                                    type="button" 
+                                    onClick={(e) => {
+                                        setHouseType(e.target.value)
+                                    }} 
+                                    value="Apartment"
                                 />
+                                <input 
+                                    className="btn btn__secondary input__style margin_right gray_font text_align_left p__text"
+                                    type="button" 
+                                    onClick={() => { 
+
+                                    }} 
+                                    value="Villa"
+                                />
+
                             </div>
                         </div>
                         <div className="flex input__container">
-                            <label className="">House Ownership </label>
+                            <label className="">House Ownership : {HouseOwnership} </label>
                             <div className="flex inner__input__container ">
-
-                            <input
-                                className="input__style margin_right"   
-                                placeholder="Owned"
-                                type="text"
-                                value={Owned}
-                                onChange={(e) => {
- 
-                                }}
-                                required 
-                                /><input
-                                className="input__style"   
-                                placeholder="Rental"
-                                type="text"
-                                value={Rental}
-                                onChange={(e) => {
-  
-                                }}
-                                required 
+                                <input 
+                                    className="btn btn__secondary input__style margin_right gray_font text_align_left p__text"
+                                    type="button" 
+                                    onClick={(e) => { 
+                                        setHouseOwnership(e.target.value);
+                                    }} 
+                                    value="Owned"
                                 />
+                                <input 
+                                    className="btn btn__secondary input__style margin_right gray_font text_align_left p__text"
+                                    type="button" 
+                                    onClick={(e) => { 
+                                        setHouseOwnership(e.target.value);
+
+                                    }} 
+                                    value="Rental"
+                                />
+                           
                             </div>
                         </div>
                         <div className="flex input__container">
@@ -324,7 +323,7 @@ const ChargerDetails = ({chargers}) => {
                                 }} 
                                 >Back to step 2</button>
                             
-                                <Link to={`/sha7en/Summary/${charger.id}`}>
+                                <Link to={`/sha7en/Summary/${charger.charger_id}`}>
                                     <button className="btn btn__primary general_shadow p__text" 
                                     onClick={() => {
                                         setStep1(false); 

@@ -1,7 +1,7 @@
 // import './Css/Home.css';
 import React,{ useState } from 'react'
 import HeaderLogo from '../images/Sha7enLogo_White_200.png'
-import Header_img_1 from '../images/Header_img_1.jpg'
+import Header_img_1 from '../images/Header_img_1.png'
 import Cards from '../Components/Cards';
 
 

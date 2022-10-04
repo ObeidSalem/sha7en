@@ -7,7 +7,7 @@ const Cards = ({vehicles}) => {
         <div className="vehicles__container">
             <HomeVehiclesList
                 vehicles={vehicles}
-            div/>
+            />
         </div>
      );
 }
