@@ -105,7 +105,7 @@
 .partners_image{
     border: solid 1px #eee; 
     border-radius: 10px;
-    width: 400px;
+    width: 300px;
     margin: 30px;
 
 }
@@ -124,8 +124,10 @@
     width: 25%;
 }
 
-#BookNow{
+#BookNow, #BookNow:visited, #BookNow:link{
     width: 120px;
+    text-decoration: inherit;
+    color: inherit;
 }
 
 #BookNow:hover {
