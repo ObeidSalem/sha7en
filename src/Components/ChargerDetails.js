@@ -7,7 +7,7 @@ import { Link, useParams } from 'react-router-dom'
 const ChargerDetails = ({chargers}) => {
 
     const [step1, setStep1] = useState(true);
-    const [step2, setStep2] = useState(false);
+    const [step2, setStep2] = useState(true);
     const [step3, setStep3] = useState(false);
 
     const [selectedCable, setSelectedCable] = useState("");
@@ -56,25 +56,25 @@ const ChargerDetails = ({chargers}) => {
                 </div>
             </div> 
             <div className="charger__header__container ">
-                <div className="steps__container ">
+                {/* <div className="steps__container ">
                     <hr/>
                     <h2 className={`unbold text_align_left black_font h2__text ${blueFont1}`}>Step 1</h2>
                     <h2 className={`unbold text_align_left black_font h2__text ${blueFont1}`}>Cable Details</h2>
-                </div>
+                </div> */}
                 <div className="steps__container ">
                     <hr/>
-                    <h2 className={`unbold text_align_left black_font h2__text ${blueFont2}`}>Step 2</h2>
+                    <h2 className={`unbold text_align_left black_font h2__text ${blueFont2}`}>Step 1</h2>
                     <h2 className={`unbold text_align_left black_font h2__text ${blueFont2}`}>House Details</h2>
                 </div>                
                 <div className="steps__container ">
                     <hr/>
-                    <h2 className={`unbold text_align_left black_font h2__text ${blueFont3}`}>Step 3</h2>
+                    <h2 className={`unbold text_align_left black_font h2__text ${blueFont3}`}>Step 2</h2>
                     <h2 className={`unbold text_align_left black_font h2__text ${blueFont3}`}>Personal Details</h2>
                 </div>
             </div>
 
             <div className="charger__header__container charger__cable__container general_shadow">
-                {step1 ?
+                {/* {step1 ?
                     <>
                         <motion.div ref={carousel} className="carousel">
                             <h2 className=" blue_font unbold text_align_left black_font h2__text">Cable Selection</h2>
@@ -128,7 +128,7 @@ const ChargerDetails = ({chargers}) => {
                             </div>
                         </motion.div>
                     </>
-                : ''}
+                : ''} */}
 
 
 
@@ -157,8 +157,8 @@ const ChargerDetails = ({chargers}) => {
                                 <input 
                                     className="btn btn__secondary input__style margin_right gray_font text_align_left p__text"
                                     type="button" 
-                                    onClick={() => { 
-
+                                    onClick={(e) => { 
+                                        setHouseType(e.target.value)
                                     }} 
                                     value="Villa"
                                 />
@@ -202,10 +202,10 @@ const ChargerDetails = ({chargers}) => {
                             />
                         </div>
                         <div className="flex input__container">
-                            <label className="">Additional Info</label>
+                            <label className="">Special Remarks</label>
                             <input
                                 className="input__style"   
-                                placeholder="Phone No."
+                                placeholder="Special Remarks."
                                 type="text"
                                 value={Note}
                                 onChange={(e) => {
@@ -220,7 +220,7 @@ const ChargerDetails = ({chargers}) => {
                     <motion.div className="btn_container">
                         <br/>
                         <div className="popup__model__container">
-                            <button className="btn btn__secondary general_shadow p__text"
+                            {/* <button className="btn btn__secondary general_shadow p__text"
                             onClick={() => {
                                 setStep1(true); 
                                 setStep2(false); 
@@ -231,7 +231,10 @@ const ChargerDetails = ({chargers}) => {
                                 setBlueFont3("");
 
                             }} 
-                            >Back to step 1</button>
+                            >Back to step 1</button> */}
+                            <Link className="" to="/sha7en/chargers">
+                                <button className="btn btn__secondary general_shadow p__text">Cancel</button>
+                            </Link>
                             <button className="btn btn__primary general_shadow p__text" 
                             onClick={() => {
                                 setStep1(false); 
@@ -321,7 +324,7 @@ const ChargerDetails = ({chargers}) => {
                                     setBlueFont2("blue_font");
                                     setBlueFont3("");
                                 }} 
-                                >Back to step 2</button>
+                                >Back</button>
                             
                                 <Link to={`/sha7en/Summary/${charger.charger_id}`}>
                                     <button className="btn btn__primary general_shadow p__text" 

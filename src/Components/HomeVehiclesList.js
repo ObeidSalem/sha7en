@@ -7,6 +7,8 @@ const HomeVehiclesList = ({vehicles}) => {
 
     const [targetBtn, setTargetBtn] = useState()
     const [modelsBtnPopUp, setModelsBtnPopUp] = useState(false)
+    const [BrandName, setBrandName] = useState("")
+
 
     return ( 
         <>
@@ -16,6 +18,7 @@ const HomeVehiclesList = ({vehicles}) => {
                         onClick={(()=>{
                             setTargetBtn(vehicle); 
                             setModelsBtnPopUp(true)
+                            setBrandName(vehicle.brand_name)
                         })} 
                     >
                         <img className="vehicle__image" 
@@ -28,6 +31,7 @@ const HomeVehiclesList = ({vehicles}) => {
                         </h3> */}
                     </div>
                     <CarModelPopup 
+                        brand_name={BrandName}
                         vehicle={targetBtn} 
                         trigger={modelsBtnPopUp} 
                         setTrigger={setModelsBtnPopUp}>

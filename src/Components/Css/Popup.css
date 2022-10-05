@@ -15,7 +15,7 @@
 .popup__container{
     position: relative;
     text-align: left;
-    top: 40px;
+    top: 0px;
     padding: 32px;
     width: 100%;
     max-width: 1000px;
@@ -156,13 +156,13 @@
 
 @media (max-width:1160px) {
     .popup__container{
-        width: 70vw;
+        width: 80vw;
     }
 
     .popup__model__container{
         display: flex;
         justify-content: space-between;
-        max-width: 70vw;
+        max-width: 80vw;
     
     }
     

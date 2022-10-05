@@ -62,8 +62,16 @@
     }
 
     .inner__input__container {
-        width: 50%;
+        flex-direction: row;
+        /* flex-wrap: wrap; */
+        max-width: 10vw;
     }
+
+    .btn_radio{
+        min-width: fit-content;
+
+    }
+    
 
     .charger__header__content{
         max-width: 100%;
