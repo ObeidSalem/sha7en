@@ -1,12 +1,12 @@
 import './Css/Home.css';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import ChargersCards from './ChargersCards';
 
 
 const Chargers = (props) => {
 
-    const [targetBtn, setTargetBtn] = useState()
     const [model, setModel] = useState(props.selectedModel)
+
 
     return ( 
         <>

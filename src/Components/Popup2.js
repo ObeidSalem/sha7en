@@ -153,7 +153,7 @@ const Popup2 = (props) => {
                                     className="btn_radio btn btn__secondary input__style margin_right gray_font text_align_left p__text"
                                     type="button" 
                                     onClick={(e) => { 
-                                        // setHouseType(e.target.value)
+                                        setChargerType(e.target.value)
                                     }} 
                                     value="Type 2"
                                 />
@@ -161,7 +161,7 @@ const Popup2 = (props) => {
                                     className="btn_radio btn btn__secondary input__style margin_right gray_font text_align_left p__text"
                                     type="button" 
                                     onClick={(e) => {
-                                        // setHouseType(e.target.value)
+                                        setChargerType(e.target.value)
                                     }} 
                                     value="GB/T"
                                 />
@@ -169,7 +169,7 @@ const Popup2 = (props) => {
                                     className="btn_radio btn btn__secondary input__style margin_right gray_font text_align_left p__text"
                                     type="button" 
                                     onClick={(e) => { 
-                                        // setHouseType(e.target.value)
+                                        setChargerType(e.target.value)
                                     }} 
                                     value="CCS"
                                 />
@@ -180,15 +180,19 @@ const Popup2 = (props) => {
                 {selectedModel ? 
                     <YearsCarousel selectedModel = {selectedModel} Years={Years} Colors={Colors} />
                 : "" }
-                {true ? 
                 <motion.div className="">
                     <div className="popup__model__container">
                         <button className="btn btn__secondary general_shadow" onClick={() => props.setTrigger(false)} >Cancel</button>
-                        <Link to="/sha7en/Chargers" modelName={selectedModel}><button className="btn btn__primary general_shadow" >Next</button></Link>
+                        {ChargerType  ? ""
+                            // <Link to="/sha7en/Chargers" modelName={selectedModel}>
+                            //     <button className="btn btn__primary general_shadow" >Next</button>
+                            // </Link>
+                        : ""
+                            // <button className="btn btn__primary general_shadow opacity_50" disabled>Next</button> 
+                        }
 
                     </div>
                 </motion.div>
-                : "" }
             </div>
         </div>
     ) : "";

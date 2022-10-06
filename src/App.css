@@ -14,6 +14,11 @@
 
 }
 
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
 .animation{
   transition-property: all;
   transition-duration: .7s;
@@ -84,7 +89,7 @@ html, body{
 }
 
 .btn, .btn:visited, .btn:link{
-  padding:7px 40px;
+  padding:7px 20px;
   font-size: 1.2rem;
   border-radius: 5px;
   cursor: pointer;

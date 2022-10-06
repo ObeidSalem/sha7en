@@ -1,10 +1,26 @@
 // import './Css/ChargersList.css';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import ChargerPopup from '../Components/ChargerPopup'
 
 
 const ChargersList = ({chargers, selectedModel}) => {
 
+    
+    const [isChargerBtnPopUp, setIsChargerBtnPopUp] = useState(false)
+    
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          console.log('This will run after 1 second!')
+          setIsChargerBtnPopUp(true)
+        }, 2000);
+        return () => clearTimeout(timer);
+
+        // setTimeout(() => {
+        //     console.log('Hello, World!')
+        //   }, 3000);
+      }, []);
 
     return ( 
         <>
@@ -40,6 +56,12 @@ const ChargersList = ({chargers, selectedModel}) => {
                     </div>
                 </div>
             ))}
+            <ChargerPopup 
+                // brand_name={BrandName}
+                // vehicle={targetBtn} 
+                trigger={isChargerBtnPopUp} 
+                setTrigger={setIsChargerBtnPopUp}>
+            </ChargerPopup>
         </>
      );
 }

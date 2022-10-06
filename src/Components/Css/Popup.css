@@ -65,6 +65,16 @@
 
 }
 
+.popup__is__charger__btn__container{
+    /* display: flex;
+    justify-content: center ; */
+    /* max-width: 100%; */
+}
+
+.is__charger__btn{
+    margin: 10px;
+}
+
 .popup__model__container div{
     /* background-color:    #fff; */
 
@@ -77,6 +87,8 @@
     padding: 15px;
     border-radius: 0px 0px 5px 5px;
     border: solid 1px #eee; 
+    background-color: #fff;
+
 }
 
 .popup__model:hover, .popup__color:hover, .popup__year:hover{
@@ -98,6 +110,8 @@
     margin: 5px;
     border-radius: 2px;
     border: solid 1px #eee; 
+    background-color: #fff;
+
 }
 
 .popup__color{
@@ -135,7 +149,7 @@
 
 .carousel{
     cursor: grab;
-    background-color: #fff;
+    /* background-color: #fff; */
     /* width: 100%; */
     width: stretch;
     overflow: hidden;
@@ -145,7 +159,7 @@
     display: flex;
     width: 100%;
     height: 110%;
-    background-color: #fff;
+    /* background-color: #fff; */
     /* height: 50vh; */
 
 }
@@ -163,6 +177,7 @@
         display: flex;
         justify-content: space-between;
         max-width: 80vw;
+        
     
     }
     
@@ -173,6 +188,7 @@
 
     .popup__model{
         width: 7rem;
+
     }
 
     .popup__title{

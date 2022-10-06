@@ -1,10 +1,8 @@
 import React from 'react'
 import {motion} from 'framer-motion';
-import { useParams } from 'react-router'
 import {useRef, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import YearsCarousel from '../Components/YearsCarousel';
-import Popup2 from '../Components/Popup2';
 
 import "./Css/Popup.css"
 
