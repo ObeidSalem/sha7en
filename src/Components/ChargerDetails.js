@@ -4,7 +4,7 @@ import {motion} from 'framer-motion';
 import { Link, useParams } from 'react-router-dom'
 
 
-const ChargerDetails = ({chargers}) => {
+const ChargerDetails = ({chargers, fixedFees}) => {
 
     const [step1, setStep1] = useState(true);
     const [step2, setStep2] = useState(false);
@@ -57,6 +57,7 @@ const ChargerDetails = ({chargers}) => {
                     <h1 className="black_font h1__text">{charger.charBrand}</h1>
                     <h2 className="black_font h2__text">{charger.chargerName}</h2>
                     <h2 className="black_font ">____________________</h2>
+                    <h3 className="unbold h3__text left black_font">AED {parseInt(charger.charger_price) + parseInt(fixedFees.installation_fee) + parseInt(fixedFees.site_visit_fee)}</h3>
                     <br/>
                     <p className="black_font p__text">{charger.description}</p>
 
@@ -335,7 +336,10 @@ const ChargerDetails = ({chargers}) => {
                                 }} 
                                 >Back</button>
                             
-                                <Link to={`/sha7en/Summary/${charger.charger_id}`}>
+                                <Link state= {{stateAddress: Address}} to={{
+                                    pathname: `/sha7en/Summary/${charger.charger_id}`,
+                                    
+                                }}>
                                     <button className="btn btn__primary general_shadow p__text" 
                                     onClick={() => {
                                         setStep1(false); 

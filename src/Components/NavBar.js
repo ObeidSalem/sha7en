@@ -13,7 +13,7 @@ const NavBar = () => {
                     <div className="nav_links_left">
                         <Link className="nav_item" to="/sha7en/Home">Home</Link>
                         <Link className="nav_item" to="/sha7en/Vehicles">About Us</Link>
-                        <Link className="nav_item" to="/sha7en/Partners">Contact Ue</Link>
+                        {/* <Link className="nav_item" to="/sha7en/Partners">Contact Ue</Link> */}
                         <Link className="nav_item" to="/sha7en/login/123">
                             <Icon className="auth_icon" icon="healthicons:ui-user-profile-outline" />
                         </Link>

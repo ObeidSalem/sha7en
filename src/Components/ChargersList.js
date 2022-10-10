@@ -4,23 +4,21 @@ import { Link } from 'react-router-dom'
 import ChargerPopup from '../Components/ChargerPopup'
 
 
-const ChargersList = ({chargers, selectedModel}) => {
+const ChargersList = ({chargers, fixedFees, selectedModel}) => {
 
     
     const [isChargerBtnPopUp, setIsChargerBtnPopUp] = useState(false)
-    
+        
+    // //Charger Popup
+    // useEffect(() => {
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-          console.log('This will run after 1 second!')
-          setIsChargerBtnPopUp(true)
-        }, 2000);
-        return () => clearTimeout(timer);
+    //     const timer = setTimeout(() => {
+    //       console.log('This will run after 1 second!')
+    //       setIsChargerBtnPopUp(true)
+    //     }, 2000);
+    //     return () => clearTimeout(timer);
 
-        // setTimeout(() => {
-        //     console.log('Hello, World!')
-        //   }, 3000);
-      }, []);
+    //   }, []);
 
     return ( 
         <>
@@ -49,19 +47,23 @@ const ChargersList = ({chargers, selectedModel}) => {
                                 <Link className="btn btn__primary general_shadow" to={`/sha7en/Chargers/${charger.charger_id}`} charger = {charger}>View Product</Link>
                             </div>
                         </div>
-                        <br/>          
+                        {/* <br/>    */}
+                        <div className="popup__title">    
+                            <h3 className="unbold h3__text left black_font">AED {parseInt(charger.charger_price) + parseInt(fixedFees.installation_fee) + parseInt(fixedFees.site_visit_fee)}</h3>
+                        </div>    
+                        <br/>   
                         <p className="p__text left black_font"> 
                         {charger.description}
                         </p>
                     </div>
                 </div>
             ))}
-            <ChargerPopup 
+            {/* <ChargerPopup 
                 // brand_name={BrandName}
                 // vehicle={targetBtn} 
                 trigger={isChargerBtnPopUp} 
                 setTrigger={setIsChargerBtnPopUp}>
-            </ChargerPopup>
+            </ChargerPopup> */}
         </>
      );
 }

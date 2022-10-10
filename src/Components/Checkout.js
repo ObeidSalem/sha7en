@@ -1,9 +1,9 @@
 import './Css/Summary.css';
 import {useState, useRef} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useLocation } from 'react-router-dom'
 
 
-const Checkout = ({chargers}) => {
+const Checkout = ({chargers, fixedFees}) => {
     
     const { id } = useParams();
 
@@ -14,6 +14,8 @@ const Checkout = ({chargers}) => {
     const charger = chargerArr[0];
 
     console.log(charger)
+
+    const stateAddressVal = useLocation().state.stateAddress;
 
     return ( 
         <div className=" ">
@@ -53,20 +55,32 @@ const Checkout = ({chargers}) => {
                     <h4 className="unbold ">Obeid Salem</h4>
                     <br/>
                     <h3 className="unbold ">Shipping Address</h3>
-                    <h4 className="unbold ">Mohammed Bin Zaid City, street no 34, 35123, Abu Dhabi United Arab Emarites. </h4>
+                    <h4 className="unbold ">{stateAddressVal}</h4>
                     <br/>
                     <h3 className="unbold ">Billing Address</h3>
-                    <h4 className="unbold ">Mohammed Bin Zaid City, street no 34, 35123, Abu Dhabi United Arab Emarites. </h4>
+                    <h4 className="unbold ">{stateAddressVal}</h4>
                     <hr className="margin__top "/>
                     
                     <br/>
                     <div className="total">
-                        <h4 className="unbold ">Site Visit </h4>
-                        <h4 className="unbold ">AED50</h4>
+                        <h4 className="unbold ">Site Visit: </h4>
+                        <h4 className="unbold ">AED {fixedFees.site_visit_fee}</h4>
+                    </div>
+                    <div className="total">
+                        <h4 className="unbold ">Charger Price: </h4>
+                        <h4 className="unbold ">AED {charger.charger_price}</h4>
+                    </div>
+                    <div className="total">
+                        <h4 className="unbold ">Estimated Installation Fee: </h4>
+                        <h4 className="unbold ">AED {fixedFees.installation_fee}</h4>
                     </div>
                     <div className="total margin__top">
-                        <h3 className="unbold ">Total</h3>
-                        <h3 className="unbold ">AED50</h3>
+                        <h4 className="unbold ">Total Estimation Fee: </h4>
+                        <h4 className="unbold ">AED {parseInt(fixedFees.site_visit_fee) + parseInt(fixedFees.installation_fee) + parseInt(charger.charger_price)}</h4>
+                    </div>
+                    <div className="total margin__top">
+                        <h3 className="unbold ">Total to pay</h3>
+                        <h3 className="unbold ">AED {parseInt(fixedFees.site_visit_fee)}</h3>
                     </div>
                     {/* <Link to={`/sha7en/login`}> */}
                         <button id="btn__checkout" className="btn btn__primary margin__top" 

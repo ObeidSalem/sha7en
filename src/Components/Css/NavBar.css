@@ -59,11 +59,11 @@
     }
   
     .nav_logo{
-      width: 70px;
+      width: 80px;
     }
   
     .nav_item{
-      font-size: 0.8rem;
+      font-size: 1rem;
       Padding: 20px 10px;
     }
   }

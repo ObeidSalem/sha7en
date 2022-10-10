@@ -12,7 +12,7 @@ const Home = ({vehicles}) => {
 
     return ( 
         <>
-            <div className="home_Header page_padding">
+            {/* <div className="home_Header page_padding">
                 <div className="left_Header">
                     <div className="text_align_left"><img className="header_logo" src={HeaderLogo} width="200" alt='logo'/></div>
                     <h1 className="header_slogan yellow_font text_align_left">Your connection to charge</h1>
@@ -24,7 +24,7 @@ const Home = ({vehicles}) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="home_vehicles page_padding text_align_left">
                 <h1 className="black_font vehicles_title">Vehicles</h1>
                 <div className="vehicles_container">

@@ -1,6 +1,6 @@
 import './Css/Auth.css';
 import {useState, useRef} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useLocation } from 'react-router-dom'
 
 
 const Auth = ({chargers}) => {
@@ -12,6 +12,9 @@ const Auth = ({chargers}) => {
     });
 
     const charger = chargerArr[0];
+
+    const stateAddressVal = useLocation().state.stateAddress;
+
   
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -54,7 +57,7 @@ const Auth = ({chargers}) => {
                                 />
                             </div>
                         {/* <br/> */}
-                        <Link to={`/sha7en/Checkout/${charger.charger_id}`}>
+                        <Link state= {{stateAddress: stateAddressVal}} to={`/sha7en/Checkout/${charger.charger_id}`}>
                             <button id="btn__checkout" className="btn btn__primary margin__top" 
                                 onClick={() => {
                                 }} 
@@ -68,7 +71,7 @@ const Auth = ({chargers}) => {
                     <p className="">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
                     </p>
-                    <Link to={`/sha7en/Checkout/${charger.id}`}>
+                    <Link state= {{stateAddress: stateAddressVal}} to={`/sha7en/Checkout/${charger.charger_id}`}>
                         <button id="btn__checkout" className="btn btn__secondary margin__top" 
                         onClick={() => {
                         }} 

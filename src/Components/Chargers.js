@@ -14,6 +14,7 @@ const Chargers = (props) => {
                 <h1 className="black_font vehicles_title">Tesla Model 3{props.selectedModel} Compatible Chargers</h1>
                 <div className="vehicles_container">
                     <ChargersCards 
+                        fixedFees={props.fixedFees}
                         chargers={props.chargers}
                         model={props.selectedModel}
                     />
