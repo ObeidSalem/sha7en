@@ -1,7 +1,6 @@
 import React from 'react'
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion'
 import {useRef, useEffect, useState} from 'react'
-import { Link } from 'react-router-dom'
 import YearsCarousel from '../Components/YearsCarousel';
 
 import "./Css/Popup.css"
@@ -27,6 +26,7 @@ const CarModelPopup = (props) => {
     },[]); 
 
 
+    const [vehicleModel, setVehicleModel] = useState([123]);
     const [Years, setYears] = useState([2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012]);
     const [Colors, setColors] = useState([{color_name:'Green', color_code:'#00ff00'},{color_name:'Black', color_code:'#000000'}]);
     
@@ -40,11 +40,15 @@ const CarModelPopup = (props) => {
         });
         const modelFilter = modelFilterArr[0];
 
+        console.log(modelFilter);
+
+        const VehicleModel = modelFilter.compatibleChargers;
         const productionYears = modelFilter.productionYear;
         const modelColors = modelFilter.colors;
 
-        console.log(productionYears, modelColors);
+        console.log(productionYears, modelColors, VehicleModel);
 
+        setVehicleModel(VehicleModel);
         setYears(productionYears)
         setColors(modelColors)
 
@@ -89,7 +93,7 @@ const CarModelPopup = (props) => {
                 <hr></hr>
                 <br></br> */}
                 {popUp2? 
-                    <YearsCarousel selectedModel = {selectedModel} Years={Years} Colors={Colors} />
+                    <YearsCarousel brand_name={props.brand_name} selectedModel = {selectedModel} popUp2={popUp2} setPopUp2={setPopUp2} vehicleModel={vehicleModel} Years={Years} Colors={Colors} />
                 :
                 <>
                     <h3 className="unbold">Vehicle Model</h3>
@@ -146,20 +150,8 @@ const CarModelPopup = (props) => {
 
                 </>
                 }
-                {popUp2 ? 
-                <motion.div className="">
-                    <div className="popup__model__container">
-                        <button className="btn btn__secondary general_shadow" onClick={() => setPopUp2(false)} >Cancel</button>
-                        <Link to="/sha7en/Chargers" modelName={selectedModel}>
-                            <button className="btn btn__primary general_shadow" 
-                            //     onClick={()=>{
-                            //         setTargetBtn(vehicle); 
-                            //         setPopUp2(true)
-                            //     }
-                            // }
-                            >Next</button>
-                        </Link>
-                    </div>
+                {popUp2 ? <motion.div className="">
+                    
                 </motion.div>
                 :                
                 <motion.div className="">
@@ -169,12 +161,11 @@ const CarModelPopup = (props) => {
                         <button className="btn btn__primary general_shadow" 
                             onClick={()=>{
                                 setPopUp2(true)
-                            }
-                        }
-                        >Next</button>
-                    : ""}
-                </div>
-            </motion.div>}
+                            }}
+                            >Next</button>
+                        : ""}
+                    </div>
+                </motion.div> }
             </div>
         </div>
     ) : "";

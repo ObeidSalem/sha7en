@@ -1,7 +1,7 @@
 import React from 'react'
 import {motion} from 'framer-motion';
 import { useParams } from 'react-router'
-import {useRef, useEffect, useState} from 'react'
+import React, {useRef, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import YearsCarousel from '../Components/YearsCarousel';
 

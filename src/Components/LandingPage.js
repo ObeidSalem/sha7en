@@ -15,10 +15,10 @@ const Home = () => {
             <div className="home_Header page_padding">
                 <div className="left_Header">
                     <div className="text_align_left"><img className="header_logo" src={HeaderLogo} width="200" alt='logo'/></div>
-                    <h1 className="header_slogan yellow_font text_align_left">Your connection to charge</h1>
+                    <h1 className="header_slogan secondaryblue_font text_align_left">Your connection to charge</h1>
                     <h2 className="header_description white_font text_align_left">We are a supportive application that works us a connector between the customers and the charger providers..</h2>
                     <Link id="BookNow" className="animation btn btn__secondary h2__text" to="/sha7en/Home"
-                    >BOOK NOW</Link>
+                    >Book Now</Link>
                 </div>
                 <div className="right_Header">
                     <div>

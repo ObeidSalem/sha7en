@@ -1,7 +1,12 @@
 import './Css/ChargerDetails.css';
-import {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import {motion} from 'framer-motion';
 import { Link, useParams } from 'react-router-dom'
+import CurrencyFormat from 'react-currency-format';
+// import Geolocation from '../Components/Geolocation'
+// import GoogleMapReact from 'google-map-react';
+// import { GoogleMap, useLoadScript, Marker } from "react-google-maps/api";
+
 
 
 const ChargerDetails = ({chargers, fixedFees}) => {
@@ -44,7 +49,66 @@ const ChargerDetails = ({chargers, fixedFees}) => {
 
     // console.log(charger.cable_setups)
 
+    // const { isLoaded } = useLoadScript({
+    //     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    // });
 
+    // if (!isLoaded) return <div>Loading...</div>;
+
+    useEffect(() => {
+        getPosition();
+        // showPosition();
+    }, [])
+
+
+    const [lat, setLat] = useState()
+    const [long, setLong] = useState()
+    
+    
+    // If browser supports navigator.geolocation, generate Lat/Long else let user know there is an error
+    const getPosition = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, posError);
+        } else {
+            alert("Sorry, Geolocation is not supported by this browser."); // Alert is browser does not support geolocation
+        }
+    }
+
+    const posError = () => {
+        if (navigator.permissions) {
+            navigator.permissions.query({ name: 'geolocation' }).then(res => {
+                if (res.state === 'denied') {
+                    alert('Enable location permission for this website in your browser settings.')
+                }
+            })
+        } else {
+            alert('Unable to access your location. You can submitting it manually ')
+        }
+    }
+
+    const showPosition = (position) => {
+        let lat = position.coords.latitude
+        let long = position.coords.longitude
+
+        setLat(lat) // Using dispatch to modify lat store state
+        setLong(long) // Using dispatch to modify long store state
+
+        console.log(lat, long)
+
+        // convertToAddress(lat, long) // Will convert lat/long to City, State, & Zip code
+    }
+
+
+    const defaultProps = {
+        center: {
+          lat: 10.99835602,
+          lng: 77.01502627
+        },
+        zoom: 11
+      };
+
+
+    // console.log(charger);
 
     return ( 
         <div className=" ">
@@ -57,7 +121,9 @@ const ChargerDetails = ({chargers, fixedFees}) => {
                     <h1 className="black_font h1__text">{charger.charBrand}</h1>
                     <h2 className="black_font h2__text">{charger.chargerName}</h2>
                     <h2 className="black_font ">____________________</h2>
-                    <h3 className="unbold h3__text left black_font">AED {parseInt(charger.charger_price) + parseInt(fixedFees.installation_fee) + parseInt(fixedFees.site_visit_fee)}</h3>
+                    <h3 className="unbold h3__text left black_font">
+                        <CurrencyFormat value={parseInt(charger.charger_price) + parseInt(fixedFees.installation_fee) + parseInt(fixedFees.site_visit_fee)} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
+                    </h3>
                     <br/>
                     <p className="black_font p__text">{charger.description}</p>
 
@@ -167,6 +233,37 @@ const ChargerDetails = ({chargers, fixedFees}) => {
                                 }}
                                 required 
                             />
+                        </div>
+                        <div className="flex input__container">
+                            <label className="">Address Latitude and longitude</label>
+                            <label className="">{`Latitude ${lat} longitude ${long}`}</label>
+                            <input 
+                                className={`btn btn__secondary input__style margin_right gray_font text_align_left p__text`}
+                                type="button" 
+                                onClick={() => {
+                                    getPosition();
+                                    showPosition()
+                                }}
+                                value={`Latitude ${lat} longitude ${long}`}
+                            />
+                            {/* <Geolocation />
+                            <div style={{ height: '100vh', width: '100%' }}>
+                                <GoogleMapReact
+                                    bootstrapURLKeys={{ key: "" }}
+                                    defaultCenter={defaultProps.center}
+                                    defaultZoom={defaultProps.zoom}
+                                >
+                                    <Geolocation
+                                    lat={59.955413}
+                                    lng={30.337844}
+                                    text="My Marker"
+                                    />
+                                </GoogleMapReact>
+                            </div> */}
+
+                            {/* <div style={{ height: '50vh', width: '100%' }}>
+                                map
+                            </div> */}
                         </div>
                     <br/>
                     <hr/>
@@ -334,7 +431,7 @@ const ChargerDetails = ({chargers, fixedFees}) => {
                                     setBlueFont2("blue_font");
                                     setBlueFont3("");
                                 }} 
-                                >Back</button>
+                                >Back</button> 
                             
                                 <Link state= {{stateAddress: Address}} to={{
                                     pathname: `/sha7en/Summary/${charger.charger_id}`,

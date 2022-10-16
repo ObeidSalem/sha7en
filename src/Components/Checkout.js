@@ -1,6 +1,7 @@
 import './Css/Summary.css';
-import {useState, useRef} from 'react'
+import React, {useState, useRef} from 'react'
 import { Link, useParams, useLocation } from 'react-router-dom'
+import CurrencyFormat from 'react-currency-format';
 
 
 const Checkout = ({chargers, fixedFees}) => {
@@ -64,23 +65,37 @@ const Checkout = ({chargers, fixedFees}) => {
                     <br/>
                     <div className="total">
                         <h4 className="unbold ">Site Visit: </h4>
-                        <h4 className="unbold ">AED {fixedFees.site_visit_fee}</h4>
+                        <h4 className="unbold ">
+                            <CurrencyFormat value={fixedFees.site_visit_fee} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
+                        </h4>
                     </div>
                     <div className="total">
                         <h4 className="unbold ">Charger Price: </h4>
-                        <h4 className="unbold ">AED {charger.charger_price}</h4>
+                        <h4 className="unbold ">
+                            <CurrencyFormat value={charger.charger_price} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
+                        </h4>
                     </div>
                     <div className="total">
                         <h4 className="unbold ">Estimated Installation Fee: </h4>
-                        <h4 className="unbold ">AED {fixedFees.installation_fee}</h4>
+                        <h4 className="unbold ">
+                            <CurrencyFormat value={fixedFees.installation_fee} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
+                        </h4>
+
+                    </div>
+                    <div className="total">
+                        <h6 className="unbold gray_font">Installation fees may vary depending on the result of the site visit study.</h6>
                     </div>
                     <div className="total margin__top">
                         <h4 className="unbold ">Total Estimation Fee: </h4>
-                        <h4 className="unbold ">AED {parseInt(fixedFees.site_visit_fee) + parseInt(fixedFees.installation_fee) + parseInt(charger.charger_price)}</h4>
+                        <h4 className="unbold ">
+                            <CurrencyFormat value={parseInt(fixedFees.site_visit_fee) + parseInt(fixedFees.installation_fee) + parseInt(charger.charger_price)} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
+                        </h4>
                     </div>
                     <div className="total margin__top">
-                        <h3 className="unbold ">Total to pay</h3>
-                        <h3 className="unbold ">AED {parseInt(fixedFees.site_visit_fee)}</h3>
+                        <h3 className="unbold ">Total to pay </h3>
+                        <h3 className="unbold ">
+                            <CurrencyFormat value={parseInt(fixedFees.site_visit_fee)} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
+                        </h3>
                     </div>
                     {/* <Link to={`/sha7en/login`}> */}
                         <button id="btn__checkout" className="btn btn__primary margin__top" 

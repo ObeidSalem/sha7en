@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Link } from 'react-router-dom'
 import './Css/NavBar.css';
 import logo from '../images/Sha7enLogo_200.png'

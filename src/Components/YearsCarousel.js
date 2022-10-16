@@ -1,15 +1,17 @@
 import {motion} from 'framer-motion';
-import {useRef, useEffect, useState} from 'react'
+import React, {useRef, useEffect, useState} from 'react'
+import { Link } from 'react-router-dom'
 
 
-const YearsCarousel = ({selectedModel, Years, Colors}) => {
+const YearsCarousel = ({vehicleModel, brand_name, selectedModel, Years, Colors, setPopUp2, popUp2}) => {
     // const [selectedModel, setSelectedModel] = useState();
     const [selectedYear, setSelectedYear] = useState();
     const [selectedColor, setSelectedColor] = useState();
     const [chargerType, setChargerType] = useState();
     const [serviceOption, setServiceOption] = useState();
+    const [isOnlyInstall, setIsOnlyInstall] = useState(false)
 
-
+    console.log(vehicleModel)
 
     const [width, setWidth] = useState(600);
     const carousel = useRef();
@@ -151,6 +153,7 @@ const YearsCarousel = ({selectedModel, Years, Colors}) => {
                                 setBlueRadio5("blue_Radio")
                                 setBlueRadio6("")
                                 setServiceOption(e.target.value)
+                                setIsOnlyInstall(true)
                             }} 
                             value="Install Charger"
                         />
@@ -161,6 +164,7 @@ const YearsCarousel = ({selectedModel, Years, Colors}) => {
                                 setBlueRadio5("")
                                 setBlueRadio6("blue_Radio")
                                 setServiceOption(e.target.value)
+                                setIsOnlyInstall(false)
                             }} 
                             value="Purchase & Install Charger"
                         />
@@ -242,7 +246,54 @@ const YearsCarousel = ({selectedModel, Years, Colors}) => {
                             </motion.div>
                         </motion.div>
                     </div>
-                </motion.div>                
+                </motion.div>    
+                {isOnlyInstall ? 
+                <motion.div className="">
+                    <div className="popup__setPopUp2model__container">
+                        <div className="popup__model__container">
+                            <button className="btn btn__secondary general_shadow" 
+                            onClick={() => setPopUp2(false)} 
+                            >Back</button>
+                            {/* {isOnlyInstall?  */}
+                            <Link to="/sha7en/Chargers/000" modelName={selectedModel}>
+
+                                <button className="btn btn__primary general_shadow" 
+                                    onClick={()=>{
+                                        // setTargetBtn(vehicle); 
+                                        setPopUp2(false)
+                                    }
+                                }
+                                >Next</button>
+                            </Link>
+                            {/* : ""} */}
+                        </div>
+                    </div>
+                </motion.div>
+                :                
+                <motion.div className="">
+                    <div className="popup__model__container">
+                    <button className="btn btn__secondary general_shadow" 
+                    onClick={() => setPopUp2(false)} 
+                    >Back</button>
+                    {selectedModel ? 
+                        <Link 
+                            state= {{
+                                stateModel: selectedModel, 
+                                stateBrand: brand_name,
+                                stateVehicleModel: vehicleModel,
+                            }} 
+                            to="/sha7en/Chargers" 
+                        >
+                            <button className="btn btn__primary general_shadow" 
+                                onClick={()=>{
+                                    setPopUp2(false)
+                                }
+                            }
+                            >Next</button>
+                        </Link>
+                    : ""}
+                </div>
+            </motion.div>}       
         </>
      );
 }

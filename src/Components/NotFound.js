@@ -1,4 +1,5 @@
 // import './Css/NotFound.css';
+import React from 'react'
 
 
 const NotFound = () => {

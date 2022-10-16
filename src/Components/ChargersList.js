@@ -1,15 +1,17 @@
 // import './Css/ChargersList.css';
-import {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import ChargerPopup from '../Components/ChargerPopup'
+import CurrencyFormat from 'react-currency-format';
 
 
 const ChargersList = ({chargers, fixedFees, selectedModel}) => {
 
     
-    const [isChargerBtnPopUp, setIsChargerBtnPopUp] = useState(false)
-        
+    const [useFixedFees, setFixedFees] = useState(fixedFees)
+    
     // //Charger Popup
+    // const [isChargerBtnPopUp, setIsChargerBtnPopUp] = useState(false)
     // useEffect(() => {
 
     //     const timer = setTimeout(() => {
@@ -19,6 +21,8 @@ const ChargersList = ({chargers, fixedFees, selectedModel}) => {
     //     return () => clearTimeout(timer);
 
     //   }, []);
+
+    console.log(chargers)
 
     return ( 
         <>
@@ -49,7 +53,9 @@ const ChargersList = ({chargers, fixedFees, selectedModel}) => {
                         </div>
                         {/* <br/>    */}
                         <div className="popup__title">    
-                            <h3 className="unbold h3__text left black_font">AED {parseInt(charger.charger_price) + parseInt(fixedFees.installation_fee) + parseInt(fixedFees.site_visit_fee)}</h3>
+                            <h3 className="unbold h3__text left black_font">
+                                    <CurrencyFormat value={parseInt(charger.charger_price) + parseInt(fixedFees.installation_fee) + parseInt(fixedFees.site_visit_fee)} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
+                            </h3>
                         </div>    
                         <br/>   
                         <p className="p__text left black_font"> 

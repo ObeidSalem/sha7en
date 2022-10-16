@@ -1,4 +1,5 @@
 // import './Css/Partners.css';
+import React from 'react'
 
 
 const Partners = () => {

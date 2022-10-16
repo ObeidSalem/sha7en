@@ -1,5 +1,6 @@
 :root {
   --primeblue: #1B7CEC;
+  --secondaryblue: #c1deff;
   --primeblack: #333;
   --gray: #646464;
   --whiteshadow: #cce7ff;
@@ -39,6 +40,11 @@
 
 .yellow_font{
   color: var(--yellow);
+
+}
+
+.secondaryblue_font{
+  color: var(--secondaryblue);
 
 }
 
