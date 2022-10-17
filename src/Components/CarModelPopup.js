@@ -12,6 +12,7 @@ const CarModelPopup = (props) => {
     const [targetBtn, setTargetBtn] = useState()
     const [popUp2, setPopUp2] = useState(false)
 
+    const [showNext, setShowNext] = useState(false);
     const [selectedModel, setSelectedModel] = useState();
     const [selectedModelIndex, setSelectedModelIndex] = useState();
     const [VIN, setVIN] = useState("");
@@ -25,8 +26,9 @@ const CarModelPopup = (props) => {
 
     },[]); 
 
-
+    console.log("selectedModel", selectedModel)
     const [vehicleModel, setVehicleModel] = useState([123]);
+    // const [compatibleChargers, setCompatibleChargers] = useState([123]);
     const [Years, setYears] = useState([2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012]);
     const [Colors, setColors] = useState([{color_name:'Green', color_code:'#00ff00'},{color_name:'Black', color_code:'#000000'}]);
     
@@ -42,9 +44,27 @@ const CarModelPopup = (props) => {
 
         console.log(modelFilter);
 
-        const VehicleModel = modelFilter.compatibleChargers;
-        const productionYears = modelFilter.productionYear;
-        const modelColors = modelFilter.colors;
+        let VehicleModel = []
+        try { 
+            VehicleModel = modelFilter.compatibleChargers;
+            setShowNext(true)
+        }catch(err){
+            console.log(err.message);
+        }
+
+        let productionYears
+        try { 
+            productionYears = modelFilter.productionYear;
+        }catch(err){
+            console.log(err.message);
+        }
+
+        let modelColors
+        try { 
+            modelColors = modelFilter.colors;
+        }catch(err){
+            console.log(err.message);
+        }
 
         console.log(productionYears, modelColors, VehicleModel);
 
@@ -157,7 +177,7 @@ const CarModelPopup = (props) => {
                 <motion.div className="">
                 <div className="popup__model__container">
                     <button className="btn btn__secondary general_shadow" onClick={() => props.setTrigger(false)} >Cancel</button>
-                    {selectedModel ? 
+                    {showNext ? 
                         <button className="btn btn__primary general_shadow" 
                             onClick={()=>{
                                 setPopUp2(true)

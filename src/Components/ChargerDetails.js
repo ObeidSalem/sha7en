@@ -3,9 +3,12 @@ import React, {useState, useRef, useEffect} from 'react'
 import {motion} from 'framer-motion';
 import { Link, useParams } from 'react-router-dom'
 import CurrencyFormat from 'react-currency-format';
-// import Geolocation from '../Components/Geolocation'
-// import GoogleMapReact from 'google-map-react';
-// import { GoogleMap, useLoadScript, Marker } from "react-google-maps/api";
+import Geolocation from '../Components/Geolocation'
+import MapContainer from '../Components/MapContainer'
+import MapPopup from '../Components/MapPopup'
+// import { Map, GoogleApiWrapper } from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 
 
@@ -61,7 +64,10 @@ const ChargerDetails = ({chargers, fixedFees}) => {
     }, [])
 
 
-    const [lat, setLat] = useState()
+    const [targetBtn, setTargetBtn] = useState()
+    const [modelsBtnPopUp, setModelsBtnPopUp] = useState(false)
+    
+    const [lati, setLat] = useState()
     const [long, setLong] = useState()
     
     
@@ -87,21 +93,21 @@ const ChargerDetails = ({chargers, fixedFees}) => {
     }
 
     const showPosition = (position) => {
-        let lat = position.coords.latitude
+        let lati = position.coords.latitude
         let long = position.coords.longitude
 
-        setLat(lat) // Using dispatch to modify lat store state
+        setLat(lati) // Using dispatch to modify lat store state
         setLong(long) // Using dispatch to modify long store state
 
-        console.log(lat, long)
+        console.log(lati, long)
 
-        // convertToAddress(lat, long) // Will convert lat/long to City, State, & Zip code
+        // convertToAddress(lati, long) // Will convert lati/long to City, State, & Zip code
     }
 
 
     const defaultProps = {
         center: {
-          lat: 10.99835602,
+          lati: 10.99835602,
           lng: 77.01502627
         },
         zoom: 11
@@ -109,6 +115,9 @@ const ChargerDetails = ({chargers, fixedFees}) => {
 
 
     // console.log(charger);
+    // const { isLoaded } = useLoadScript({
+    //     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    //   });
 
     return ( 
         <div className=" ">
@@ -235,35 +244,30 @@ const ChargerDetails = ({chargers, fixedFees}) => {
                             />
                         </div>
                         <div className="flex input__container">
-                            <label className="">Address Latitude and longitude</label>
-                            <label className="">{`Latitude ${lat} longitude ${long}`}</label>
+                            <label className="">Address Geolocation</label>
                             <input 
                                 className={`btn btn__secondary input__style margin_right gray_font text_align_left p__text`}
                                 type="button" 
                                 onClick={() => {
                                     getPosition();
-                                    showPosition()
+                                    setModelsBtnPopUp(true)
+                                    // showPosition()
                                 }}
-                                value={`Latitude ${lat} longitude ${long}`}
+                                value={"Mark Property on Map"}
                             />
-                            {/* <Geolocation />
-                            <div style={{ height: '100vh', width: '100%' }}>
-                                <GoogleMapReact
-                                    bootstrapURLKeys={{ key: "" }}
-                                    defaultCenter={defaultProps.center}
-                                    defaultZoom={defaultProps.zoom}
-                                >
-                                    <Geolocation
-                                    lat={59.955413}
-                                    lng={30.337844}
-                                    text="My Marker"
-                                    />
-                                </GoogleMapReact>
-                            </div> */}
 
-                            {/* <div style={{ height: '50vh', width: '100%' }}>
-                                map
-                            </div> */}
+                            <MapPopup 
+                                className="map_container" 
+                                vehicle={targetBtn} 
+                                trigger={modelsBtnPopUp} 
+                                setTrigger={setModelsBtnPopUp}                               
+                                latitude={lati} 
+                                longitude={long}
+                                >
+                            </MapPopup>
+                            
+
+                            
                         </div>
                     <br/>
                     <hr/>
@@ -456,3 +460,4 @@ const ChargerDetails = ({chargers, fixedFees}) => {
 }
  
 export default ChargerDetails;
+
