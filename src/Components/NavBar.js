@@ -1,12 +1,25 @@
 import React from 'react'
-
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import './Css/NavBar.css';
 import logo from '../images/Sha7enLogo_200.png'
 import { Icon } from '@iconify/react';
+import {UserAuth} from '../context/AuthContext'
 
 
 const NavBar = () => {
+    const navigate  = useNavigate()
+
+    const {user, logOut} = UserAuth()
+
+    const handleSignOut = async () => {
+        try {
+          await logOut()
+          navigate("/sha7en/")
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
     return ( 
         <nav className="navbar">
             <div className="navbar_container">
@@ -16,9 +29,9 @@ const NavBar = () => {
                         <Link className="nav_item" to="/sha7en/Home">Home</Link>
                         <Link className="nav_item" to="/sha7en/Vehicles">About Us</Link>
                         {/* <Link className="nav_item" to="/sha7en/Partners">Contact Ue</Link> */}
-                        <Link className="nav_item" to="/sha7en/login/123">
-                            <Icon className="auth_icon" icon="healthicons:ui-user-profile-outline" />
-                        </Link>
+                        {user &&
+                            <Icon className="auth_icon" onClick={handleSignOut} icon="majesticons:logout-line" />
+                        }  
                     </div>
                 </div>
             </div>

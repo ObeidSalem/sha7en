@@ -22,7 +22,7 @@ const Geolocation = () => {
                     text="My Marker"
                     /> */}
                 </GoogleMapReact>
-            </div>
+            </div> 
             
         </div>
     );

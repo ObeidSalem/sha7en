@@ -13,7 +13,7 @@ const CarModelPopup = (props) => {
     const [popUp2, setPopUp2] = useState(false)
 
     const [showNext, setShowNext] = useState(false);
-    const [selectedModel, setSelectedModel] = useState();
+    const [selectedModel, setSelectedModel] = useState("");
     const [selectedModelIndex, setSelectedModelIndex] = useState();
     const [VIN, setVIN] = useState("");
 
@@ -23,8 +23,10 @@ const CarModelPopup = (props) => {
     useEffect(() => {
         // console.log(carousel.current.scrollwidth,  carousel.current.offsetWidth);
         // setWidth(carousel.current.scrollwidth - carousel.current.offsetWidth);
+        // handelClickSelectedModel()
 
     },[]); 
+
 
     console.log("selectedModel", selectedModel)
     const [vehicleModel, setVehicleModel] = useState([123]);
@@ -121,6 +123,10 @@ const CarModelPopup = (props) => {
                         <motion.div ref={carousel} className="carousel">
                             <motion.div drag="x" dragConstraints={{right: 0, left: -width}} whileTap={{cursor: "grabbing"}} className="inner__carousel">
                                 {props.vehicle.vehModels.map((model, i) =>{
+                                    // console.log(model.modelName)
+                                    // if (selectedModel==""){
+                                    //     setSelectedModel(model.modelName)
+                                    // }
                                 return (
                                     <motion.div 
                                         key={i}

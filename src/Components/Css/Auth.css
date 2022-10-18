@@ -1,3 +1,8 @@
+.auth__content{
+    height: 60vh;
+
+}
+
 .auth__card__container{
     display: flex;
     justify-content: center;
@@ -5,10 +10,24 @@
     margin-top: 50px;
     margin-bottom: 50px;
 
+
 }
 
 #btn__checkout {
     border:solid 0.5px var(--gray);
+
+}
+
+.btn__Auth {
+    width: 200px;
+}
+
+
+
+
+.auth_card{
+    width: 240px;
+    text-align: left;
 
 }
 
@@ -21,6 +40,10 @@
 
     .auth__card__container{
         width: fill;
+    }
+
+    .auth_card{
+        width: 100%;    
     }
     
 }

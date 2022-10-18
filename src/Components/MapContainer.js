@@ -13,7 +13,7 @@ class MapContainer extends React.Component {
                     initialCenter = {{ lat: this.props.latitude, lng: this.props.longitude }}
                 onClick={(e) => {
                     // this.setState({latitude: this.props.latitude, longitude:this.props.longitude})
-                    console.log(e)
+                    console.log(e.latLon)
                 }}
                 >
                     <Marker position={{ lat: this.props.latitude, lng: this.props.longitude }} />

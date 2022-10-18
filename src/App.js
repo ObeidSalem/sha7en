@@ -4,7 +4,7 @@ import './App.css';
 import { useState, useEffect } from 'react'
 import * as React from 'react';
 
-// import { AuthProvider, useAuth } from './context/AuthContext';
+import { AuthContextProvider, useAuth } from './context/AuthContext';
 
 import NavBar from './Components/NavBar';
 import LandingPage from './Components/LandingPage';
@@ -124,28 +124,30 @@ const App = () => {
    }, [])
    
   return (
-    // <AuthProvider> //to be developed
-      <Router>
-        <div className="App">
-        <NavBar />
-          <Routes>
-              <Route exact path='/sha7en/' element={<LandingPage />} />
-              <Route exact path='/sha7en/Home' element={<Home vehicles={vehicles}/>} />
-              <Route path='/sha7en/About' element={<About/>} />
-              <Route path='/sha7en/Partners' element={<Partners/>} />
-              <Route path='/sha7en/Vehicles' element={<Vehicles/>} />
-              <Route path='/sha7en/Chargers' element={<Chargers vehicles={vehicles} chargers={chargers} fixedFees={fixedFees}/>} />
-              <Route path='/sha7en/Chargers/:id' element={<ChargerDetails chargers={chargers} fixedFees={fixedFees}/>}  />
-              <Route path='/sha7en/Summary/:id' element={<Summary chargers={chargers} fixedFees={fixedFees}/>} />
-              <Route path='/sha7en/Checkout/:id' element={<Checkout chargers={chargers} fixedFees={fixedFees}/>} />
-              <Route path='/sha7en/login/:id' element={<Auth chargers={chargers}/>} />
-              {/* <Route path='/sha7en/*' element={<NotFound/>} /> */}
+    <>
+      <AuthContextProvider>
+        <Router>
+          <div className="App">
+          <NavBar />
+            <Routes>
+                <Route exact path='/sha7en/' element={<LandingPage />} />
+                <Route exact path='/sha7en/Home' element={<Home vehicles={vehicles}/>} />
+                <Route path='/sha7en/About' element={<About/>} />
+                <Route path='/sha7en/Partners' element={<Partners/>} />
+                <Route path='/sha7en/Vehicles' element={<Vehicles/>} />
+                <Route path='/sha7en/Chargers' element={<Chargers vehicles={vehicles} chargers={chargers} fixedFees={fixedFees}/>} />
+                <Route path='/sha7en/Chargers/:id' element={<ChargerDetails chargers={chargers} fixedFees={fixedFees}/>}  />
+                <Route path='/sha7en/Summary/:id' element={<Summary chargers={chargers} fixedFees={fixedFees}/>} />
+                <Route path='/sha7en/Checkout/:id' element={<Checkout chargers={chargers} fixedFees={fixedFees}/>} />
+                <Route path='/sha7en/login/:id' element={<Auth chargers={chargers}/>} />
+                {/* <Route path='/sha7en/*' element={<NotFound/>} /> */}
 
-          </Routes>
-          <Footer />
-        </div>
-      </Router>
-    // <AuthProvider>
+            </Routes>
+            <Footer />
+          </div>
+        </Router>
+      </AuthContextProvider>
+    </>
   );
 }
 
