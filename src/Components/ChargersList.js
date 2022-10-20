@@ -1,15 +1,17 @@
 // import './Css/ChargersList.css';
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ChargerPopup from '../Components/ChargerPopup'
 import CurrencyFormat from 'react-currency-format';
+import { useLocation } from 'react-router-dom'
 
 
-const ChargersList = ({chargers, fixedFees, selectedModel}) => {
 
-    
+const ChargersList = ({ chargers, fixedFees, selectedModel, stateProps }) => {
+
+
     const [useFixedFees, setFixedFees] = useState(fixedFees)
-    
+
     // //Charger Popup
     // const [isChargerBtnPopUp, setIsChargerBtnPopUp] = useState(false)
     // useEffect(() => {
@@ -22,49 +24,59 @@ const ChargersList = ({chargers, fixedFees, selectedModel}) => {
 
     //   }, []);
 
-    console.log(chargers)
-
-    return ( 
+    return (
         <>
-            {chargers.map(charger =>(
+            {chargers.map(charger => (
                 <div className="vehicle__container charger__container" key={charger.charger_id} id={charger.charger_id}>
                     <div className="vehicle__content"
                     >
-                    <div className="popup__title">
-                        <h2>{charger.charBrand}</h2>
-                        
-                        <img className="popup__title__image circle" 
+                        <div className="popup__title">
+                            <h2>{charger.charBrand}</h2>
+
+                            <img className="popup__title__image circle"
                                 src={charger.brandImage}
-                                onError={(e)=>{e.target.onerror = null; e.target.src="/images/vehicle_cover_alt.jpg"}}
-                        /> 
-                    </div>
-                    <br></br>
-                    <br></br>
-                        <img className="vehicle__image" 
+                                onError={(e) => { e.target.onerror = null; e.target.src = "/images/vehicle_cover_alt.jpg" }}
+                            />
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <img className="vehicle__image"
                             src={charger.chargerImage}
-                            onError={(e)=>{e.target.onerror = null; e.target.src="/images/charger.jpg"}}
-                        />   
-                        <br/>          
-                        <div className="popup__title">    
+                            onError={(e) => { e.target.onerror = null; e.target.src = "/images/charger.jpg" }}
+                        />
+                        <br />
+                        <div className="popup__title">
                             <h2 className="h2__text left black_font">{charger.chargerName}</h2>
                             <div>
-                                <Link className="btn btn__primary general_shadow" to={`/sha7en/Chargers/${charger.charger_id}`} charger = {charger}>View Product</Link>
-                            </div>
+                                <Link className="btn btn__primary general_shadow"
+                                    to={`/sha7en/Chargers/${charger.charger_id}`}
+                                    charger={charger}
+                                    state={{
+                                        stateModel: stateProps.stateModel,
+                                        stateBrand: stateProps.stateBrand,
+                                        stateProductionYear: stateProps.stateProductionYear,
+                                        stateColor:stateProps.stateColor,
+                                        stateServiceType:stateProps.stateServiceType,
+                                        stateChargerType:stateProps.stateChargerType,
+                                    }}
+                                    >View Product</Link>
                         </div>
-                        {/* <br/>    */}
-                        <div className="popup__title">    
-                            <h3 className="unbold h3__text left black_font">
-                                    <CurrencyFormat value={parseInt(charger.charger_price) + parseInt(fixedFees.installation_fee) + parseInt(fixedFees.site_visit_fee)} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
-                            </h3>
-                        </div>    
-                        <br/>   
-                        <p className="p__text left black_font"> 
-                        {charger.description}
-                        </p>
                     </div>
+                    {/* <br/>    */}
+                    <div className="popup__title">
+                        <h3 className="unbold h3__text left black_font">
+                            <CurrencyFormat value={parseInt(charger.charger_price) + parseInt(fixedFees.installation_fee) + parseInt(fixedFees.site_visit_fee)} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
+                        </h3>
+                    </div>
+                    <br />
+                    <p className="p__text left black_font">
+                        {charger.description}
+                    </p>
                 </div>
-            ))}
-            {/* <ChargerPopup 
+                </div>
+    ))
+}
+{/* <ChargerPopup 
                 // brand_name={BrandName}
                 // vehicle={targetBtn} 
                 trigger={isChargerBtnPopUp} 
@@ -73,5 +85,5 @@ const ChargersList = ({chargers, fixedFees, selectedModel}) => {
         </>
      );
 }
- 
+
 export default ChargersList;

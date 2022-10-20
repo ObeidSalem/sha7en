@@ -9,7 +9,13 @@ const Chargers = (props) => {
     const stateBrandVal = useLocation().state.stateBrand;
     const stateModelVal = useLocation().state.stateModel;
     const stateVehicleModelVal = useLocation().state.stateVehicleModel;
-    
+    const stateModel = useLocation().state.stateModel;
+    const stateBrand = useLocation().state.stateBrand;
+    const stateProductionYear = useLocation().state.stateProductionYear;
+    const stateColor = useLocation().state.stateColor;
+    const stateServiceType = useLocation().state.stateServiceType;
+    const stateChargerType = useLocation().state.stateChargerType;
+
     // console.log(props)
     // console.log(stateModelVal, stateVehicleModelVal)
 
@@ -29,6 +35,16 @@ const Chargers = (props) => {
                         fixedFees={props.fixedFees}
                         chargers={props.chargers}
                         model={props.selectedModel}
+
+                        stateProps= {{
+                            stateModel: stateModel, 
+                            stateBrand: stateBrand,
+                            stateProductionYear: stateProductionYear,
+                            stateColor:stateColor,
+                            stateServiceType:stateServiceType,
+                            stateChargerType:stateChargerType,
+                        }} 
+
                         stateVehicleModelVal={stateVehicleModelVal}
                     />
                 </div>

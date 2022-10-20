@@ -28,6 +28,7 @@ const ChargersCards = (props) => {
                 fixedFees={props.fixedFees}
                 model={props.selectedModel}
                 chargers={compatible}
+                stateProps={props.stateProps}
             div/>
         </div>
      );
