@@ -458,9 +458,9 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
                                     stateServiceType: stateServiceType,
                                     stateChargerType: stateChargerType,
 
-                                    stateCharBrand:charger.charBrand,
-                                    stateChargerName:charger.chargerName,
-                                    stateChargerId:charger.charger_id,
+                                    stateCharBrand: charger.charBrand,
+                                    stateChargerName: charger.chargerName,
+                                    stateChargerId: charger.charger_id,
                                 }}
                                     to={{ pathname: `/sha7en/Summary/${charger.charger_id}`, }}
                                 >

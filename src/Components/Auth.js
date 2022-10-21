@@ -188,7 +188,7 @@ const Auth = ({ chargers }) => {
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                             </p>
                             <Link state={{ stateAddress: stateAddressVal }} to={`/sha7en/Checkout/${charger.charger_id}`}>
-                                <button className="btn btn__Auth btn__secondary margin__top"
+                                <button id="btn__checkout" className="btn btn__Auth btn__secondary margin__top"
                                     onClick={() => {
                                     }}
                                 >Continue As a Guest</button>
