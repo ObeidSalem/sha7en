@@ -17,11 +17,12 @@ const AdminPanel = () => {
 
     const [zoho_correlation_id_charger, set_zoho_correlation_id_charger] = useState("")
     const [charger_id, set_charger_id] = useState("")
-    const [charger_price, set_charger_price] = useState("")
+    const [charger_price, set_charger_price] = useState()
     const [charBrand, set_charBrand] = useState("")
     const [chargerName, set_chargerName] = useState("")
     const [description, set_description] = useState("")
     const [brandImage, set_brandImage] = useState("")
+    const [chargerImage, set_chargerImage] = useState("")
 
 
     // {
@@ -228,6 +229,20 @@ const AdminPanel = () => {
                             required
                         />
                     </div>
+                    <div className="flex input__container">
+                        <label className="">Charger Image</label>
+                        <input
+                            className="input__style"
+                            placeholder="Ex.:URL"
+                            type="text"
+                            value={chargerImage}
+                            onChange={(e) => {
+                                set_chargerImage(e.target.value)
+
+                            }}
+                            required
+                        />
+                    </div>
                     <br />
                     <hr />
                 </div>
@@ -244,10 +259,11 @@ const AdminPanel = () => {
                                     chargerName: chargerName,
                                     description: description,
                                     brandImage: brandImage,
+                                    chargerImage: chargerImage,
                                 };
 
                                 console.log(data);
-                                if (zoho_correlation_id_charger && charger_id && charger_price && charBrand && chargerName && description && brandImage) {
+                                if (zoho_correlation_id_charger && charger_id && charger_price && charBrand && chargerName && description && brandImage && chargerImage) {
                                     setDoc(doc(chargersRef, charger_id), data );
                                 }
                             }}
