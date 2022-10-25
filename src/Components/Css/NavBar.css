@@ -18,17 +18,16 @@
   .nav_links {
     align-items: center;
     color: var(--primeblack);
-    width: 100%;
+    width: fill;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
   
   .nav_item{
-    Padding: 20px;
+    Padding: 40px;
     cursor: pointer;
-    
-  }
+    }
   
   .nav_item:link {
     text-decoration: inherit;
@@ -49,7 +48,7 @@
   }
 
   .auth_icon{
-    width: 1.2rem;
+    width: 30px;
   }
   
   @media (max-width:1160px) {

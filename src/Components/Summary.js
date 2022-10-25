@@ -1,14 +1,19 @@
 import './Css/Summary.css';
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link, useParams, useLocation } from 'react-router-dom'
 import CurrencyFormat from 'react-currency-format';
 import { v4 as uuidv4 } from "uuid";
 import { onSnapshot, collection, doc, setDoc, getDocs } from "firebase/firestore"
 import db from "../firebase"
+import { UserAuth } from '../context/AuthContext'
+
 
 
 
 const Summary = ({ Address, chargers, fixedFees }) => {
+
+    const { user } = UserAuth()
+    const [isLogged, setIsLogged] = useState(false)
 
     const { id } = useParams();
 
@@ -19,7 +24,7 @@ const Summary = ({ Address, chargers, fixedFees }) => {
     const charger = chargerArr[0];
 
     const stateAddressVal = useLocation().state.stateAddress;
-    const stateEmail = useLocation().state.stateEmail;
+    const [Email, setEmail] = useState(useLocation().state.stateEmail)
     const stateName = useLocation().state.stateName;
     const statePhone = useLocation().state.statePhone;
     const stateHouseType = useLocation().state.stateHouseOwnership;
@@ -44,9 +49,9 @@ const Summary = ({ Address, chargers, fixedFees }) => {
 
     const interestedRef = collection(db, "Interested");
 
-    setDoc(doc(interestedRef, stateEmail), {
+    let data = {
         Address: stateAddressVal,
-        Email: stateEmail,
+        Email: Email,
         Name: stateName,
         Phone: statePhone,
         HouseType: stateHouseType,
@@ -66,18 +71,17 @@ const Summary = ({ Address, chargers, fixedFees }) => {
         CharBrand: stateCharBrand,
         ChargerName: stateChargerName,
         ChargerId: stateChargerId,
+    }
 
-    });
 
-    // useEffect(() => {
+    setDoc(doc(interestedRef, Email), data);
+    useEffect(() => {
+        if (user) {
+            setIsLogged(true)
+        } 
+        else { setIsLogged(false) }
 
-    //     const timer = setTimeout(() => {
-    //       console.log('This will run after 1 second!')
-    //       setIsChargerBtnPopUp(true)
-    //     }, 2000);
-    //     return () => clearTimeout(timer);
-
-    //   }, []);
+      }, []);
 
 
     return (
@@ -156,34 +160,46 @@ const Summary = ({ Address, chargers, fixedFees }) => {
                             <CurrencyFormat value={parseInt(fixedFees.site_visit_fee)} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
                         </h3>
                     </div>
+                    {isLogged?
                     <Link state={{
-                        Address: stateAddressVal,
-                        Email: stateEmail,
-                        Name: stateName,
-                        Phone: statePhone,
-                        HouseType: stateHouseType,
-                        HouseOwnership: stateHouseOwnership,
-                        Lati: stateLati,
-                        Long: stateLong,
-                        Remarks: stateRemarks,
-                        Date: date,
-
-                        VehicleModel: stateModel,
-                        VehicleBrand: stateBrand,
-                        VehicleProductionYear: stateProductionYear,
-                        VehicleColor: stateColor,
-                        ServiceType: stateServiceType,
-                        ChargerPort: stateChargerType,
-
-                        CharBrand: stateCharBrand,
-                        ChargerName: stateChargerName,
-                        ChargerId: stateChargerId,
-                    }} to={`/sha7en/login/${charger.charger_id}`}>
+                        Email: Email,
+                        stateAddress: stateAddressVal
+                    }} to={`/sha7en/Checkout/${charger.charger_id}`}>
                         <button id="btn__checkout" className="btn btn__primary margin__top"
                             onClick={() => {
                             }}
                         >Checkout</button>
                     </Link>
+                    :
+                        <Link state={{
+                            Address: stateAddressVal,
+                            Email: Email,
+                            Name: stateName,
+                            Phone: statePhone,
+                            HouseType: stateHouseType,
+                            HouseOwnership: stateHouseOwnership,
+                            Lati: stateLati,
+                            Long: stateLong,
+                            Remarks: stateRemarks,
+                            Date: date,
+
+                            VehicleModel: stateModel,
+                            VehicleBrand: stateBrand,
+                            VehicleProductionYear: stateProductionYear,
+                            VehicleColor: stateColor,
+                            ServiceType: stateServiceType,
+                            ChargerPort: stateChargerType,
+
+                            CharBrand: stateCharBrand,
+                            ChargerName: stateChargerName,
+                            ChargerId: stateChargerId,
+                        }} Email={Email} to={`/sha7en/login/${charger.charger_id}`}>
+                            <button id="btn__checkout" className="btn btn__primary margin__top"
+                                onClick={() => {
+                                }}
+                            >Checkout</button>
+                        </Link>
+                    }
                 </div>
             </div>
         </div>

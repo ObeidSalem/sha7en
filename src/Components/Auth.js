@@ -11,7 +11,7 @@ import db from "../firebase"
 // import { Alert } from "react-bootstrap"
 
 
-const Auth = ({ chargers }) => {
+const Auth = ({ chargers, Email }) => {
 
     const { id } = useParams();
 
@@ -43,7 +43,7 @@ const Auth = ({ chargers }) => {
     const stateChargerId = useLocation().state.stateChargerId;
 
 
-    const [email, setEmail] = useState(stateEmail);
+    const [email, setEmail] = useState(Email);
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");

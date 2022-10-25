@@ -57,7 +57,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
     }
 
     function handelClickSelectedColor(e, i) {
-
+        console.log(e.target.outerText)
         setSelectedColor(e.target.outerText)
         setIsColorRadio(false);
         setIsColorRadio(prevState => ({
@@ -217,7 +217,8 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
                                     <motion.div
                                         key={i}
                                         onClick={(e) => {
-                                            setSelectedColor(Colors[i].color_name);
+                                            console.log("Colors[i].color_name", color)
+                                            setSelectedColor(color);
                                             handelClickSelectedColor(e, i);
                                             setSelectedColorIndex(i)
 
@@ -226,7 +227,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
                                         <div
                                             className="popup__color general_shadow"
                                             style={{
-                                                backgroundColor: `${Colors[i].color_code}`
+                                                backgroundColor: `${color}`
                                                 ,
                                             }}
                                         ></div>
