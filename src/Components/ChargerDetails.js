@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion';
 import { Link, useParams } from 'react-router-dom'
 import CurrencyFormat from 'react-currency-format';
-import Geolocation from '../Components/Geolocation'
+// import Geolocation from '../Components/Geolocation'
 import MapContainer from '../Components/MapContainer'
 import MapPopup from '../Components/MapPopup'
 // import { Map, GoogleApiWrapper } from 'google-map-react';
@@ -233,31 +233,29 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
                             </div>
                             <div className="flex input__container">
                                 <label className="">House Address</label>
-                                <textarea
-                                    className="text_area input__style"
-                                    placeholder="Address"
-                                    type="text"
-                                    rows="5"
-                                    value={Address}
-                                    onChange={(e) => {
-                                        setAddress(e.target.value)
+                                <div className="flex inner__input__container ">
+                                    <textarea
+                                        className="text_area input__style"
+                                        placeholder="Address"
+                                        type="text"
+                                        rows="5"
+                                        value={Address}
+                                        onChange={(e) => {
+                                            setAddress(e.target.value)
 
-                                    }}
-                                    required
-                                />
+                                        }}
+                                        required
+                                    />
+                                </div>
                             </div>
                             <div className="flex input__container">
+                                <br />
                                 <label className="">Address Geolocation</label>
-                                <input
-                                    className={`btn btn__secondary input__style margin_right gray_font text_align_left p__text`}
-                                    type="button"
-                                    onClick={() => {
-                                        getPosition();
-                                        setModelsBtnPopUp(true)
-                                        // showPosition()
-                                    }}
-                                    value={"Mark Property on Map"}
-                                />
+                                <div className="map__container left"  >
+                                    <br />
+                                    <MapContainer latitude={lati} longitude={long} />
+
+                                </div>
 
                                 <MapPopup
                                     className="map_container"
@@ -318,49 +316,60 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
                             <hr />
                             <div className="flex input__container">
                                 <label className="">Name</label>
-                                <input
-                                    className="input__style"
-                                    placeholder="Name"
-                                    type="text"
-                                    value={name}
-                                    onChange={(e) => {
-                                        setName(e.target.value)
-                                        // setOwner(user.firstNameRef)
-                                        // setLocation(user.addressRef)
-                                        // setPhoneNo(user.phoneRef)
-                                        // setIsAvailable(true)
-                                        // console.log(owner + location + phoneNo + uid)
-                                    }}
-                                    required
-                                />
+                                <div className="flex inner__input__container ">
+                                    <input
+                                        className="input__style"
+                                        placeholder="Name"
+                                        type="text"
+                                        value={name}
+                                        onChange={(e) => {
+                                            setName(e.target.value)
+                                            // setOwner(user.firstNameRef)
+                                            // setLocation(user.addressRef)
+                                            // setPhoneNo(user.phoneRef)
+                                            // setIsAvailable(true)
+                                            // console.log(owner + location + phoneNo + uid)
+                                        }}
+                                        required
+                                    />
+                                </div>
+
                             </div>
                             <div className="flex input__container">
                                 <label className="">Email Address</label>
-                                <input
-                                    className="input__style"
-                                    placeholder="Email"
-                                    type="text"
-                                    value={email}
-                                    onChange={(e) => {
-                                        setEmail(e.target.value)
+                                <div className="flex inner__input__container ">
 
-                                    }}
-                                    required
-                                />
+                                    <input
+                                        className="input__style"
+                                        placeholder="Email"
+                                        type="text"
+                                        value={email}
+                                        onChange={(e) => {
+                                            setEmail(e.target.value)
+
+                                        }}
+                                        required
+                                    />
+                                </div>
+
                             </div>
                             <div className="flex input__container">
                                 <label className="">Phone Number</label>
-                                <input
-                                    className="input__style"
-                                    placeholder="Phone No."
-                                    type="text"
-                                    value={phone}
-                                    onChange={(e) => {
-                                        setPhone(e.target.value)
+                                <div className="flex inner__input__container ">
 
-                                    }}
-                                    required
-                                />
+                                    <input
+                                        className="input__style"
+                                        placeholder="Phone No."
+                                        type="text"
+                                        value={phone}
+                                        onChange={(e) => {
+                                            setPhone(e.target.value)
+
+                                        }}
+                                        required
+                                    />
+                                </div>
+
                             </div>
                             <br />
                             <hr />
@@ -412,17 +421,21 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
                         <motion.div ref={carousel} className="carousel">
                             <div className="flex input__container">
                                 <label className="">Special Remarks</label>
-                                <textarea
-                                    className="text_area input__style"
-                                    placeholder="Special Remarks."
-                                    type="textarea"
-                                    rows="5"
-                                    value={remarks}
-                                    onChange={(e) => {
-                                        setRemarks(e.target.value)
-                                    }}
-                                    required
-                                />
+                                <div className="flex inner__input__container ">
+
+                                    <textarea
+                                        className="text_area input__style"
+                                        placeholder="Special Remarks."
+                                        type="textarea"
+                                        rows="5"
+                                        value={remarks}
+                                        onChange={(e) => {
+                                            setRemarks(e.target.value)
+                                        }}
+                                        required
+                                    />
+                                </div>
+
                             </div>
                         </motion.div>
                         <motion.div className="btn_container">

@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import {useRef, useEffect, useState} from 'react'
+import { useRef, useEffect, useState } from 'react'
 import YearsCarousel from '../Components/YearsCarousel';
 
 import "./Css/Popup.css"
@@ -25,15 +25,15 @@ const CarModelPopup = (props) => {
         // setWidth(carousel.current.scrollwidth - carousel.current.offsetWidth);
         // handelClickSelectedModel()
 
-    },[]); 
+    }, []);
 
 
     console.log("selectedModel", selectedModel)
     const [vehicleModel, setVehicleModel] = useState([123]);
     // const [compatibleChargers, setCompatibleChargers] = useState([123]);
     const [Years, setYears] = useState([2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012]);
-    const [Colors, setColors] = useState([{color_name:'Green', color_code:'#00ff00'},{color_name:'Black', color_code:'#000000'}]);
-    
+    const [Colors, setColors] = useState([{ color_name: 'Green', color_code: '#00ff00' }, { color_name: 'Black', color_code: '#000000' }]);
+
     const [isBlueRadio, setIsBlueRadio] = useState(false);
 
     function getManufactureYears(selectedModel) {
@@ -47,24 +47,24 @@ const CarModelPopup = (props) => {
         console.log(modelFilter);
 
         let VehicleModel = []
-        try { 
+        try {
             VehicleModel = modelFilter.compatibleChargers;
             setShowNext(true)
-        }catch(err){
+        } catch (err) {
             console.log(err.message);
         }
 
         let productionYears
-        try { 
+        try {
             productionYears = modelFilter.productionYear;
-        }catch(err){
+        } catch (err) {
             console.log(err.message);
         }
 
         let modelColors
-        try { 
+        try {
             modelColors = modelFilter.colors;
-        }catch(err){
+        } catch (err) {
             console.log(err.message);
         }
 
@@ -78,7 +78,7 @@ const CarModelPopup = (props) => {
 
     }
 
-    function handelClickSelectedModel(e,i) {
+    function handelClickSelectedModel(e, i) {
         // console.log(i);
         // console.log(selectedModelIndex);
         // console.log(e);
@@ -90,14 +90,14 @@ const CarModelPopup = (props) => {
             ...isBlueRadio,
             [selectedModelIndex]: false[selectedModelIndex],
             [i]: !prevState[i],
-        }))         
+        }))
     }
-    
-    return ( props.trigger) ?  ( 
+
+    return (props.trigger) ? (
         <div className="popup" >
             <div className="popup__container left">
                 <button onClick={() => props.setTrigger(false)} className="close__button">X</button>
-                { props.children }
+                {props.children}
                 <br></br>
 
                 {/* <div className="popup__title">
@@ -114,84 +114,88 @@ const CarModelPopup = (props) => {
                 <br></br>
                 <hr></hr>
                 <br></br> */}
-                {popUp2? 
-                    <YearsCarousel brand_name={props.brand_name} selectedModel = {selectedModel} popUp2={popUp2} setPopUp2={setPopUp2} vehicleModel={vehicleModel} Years={Years} Colors={Colors} />
-                :
-                <>
-                    <h3 className="unbold">Vehicle Model</h3>
-                    <div className="popup__model__container">
-                        <motion.div ref={carousel} className="carousel">
-                            <motion.div drag="x" dragConstraints={{right: 0, left: -width}} whileTap={{cursor: "grabbing"}} className="inner__carousel">
-                                {props.vehicle.vehModels.map((model, i) =>{
-                                    // console.log(model.modelName)
-                                    // if (selectedModel==""){
-                                    //     setSelectedModel(model.modelName)
-                                    // }
-                                return (
-                                    <motion.div 
-                                        key={i}
-                                        onClick={(e) => {
-                                            handelClickSelectedModel(e,i);
-                                            setSelectedModelIndex(i)
-                                        }}
-                                        >
-                                        <img className='popup__model__image'
-                                            src={model.image}
-                                            onError={(e)=>{e.target.onerror = null; e.target.src="/images/vehicle_cover_alt.jpg"}}
-                                            />
-                                        <h5 
-                                            className={`popup__model general_shadow`} 
-                                            style={{
-                                                backgroundColor: isBlueRadio[`${i}`] 
-                                                  ? "var(--primeblue)" 
-                                                  : "var(--white)",
-                                                  color: isBlueRadio[`${i}`] 
-                                                  ? "var(--white)" 
-                                                  : "initial"
-                                            }}
-                                        >{model.modelName}</h5> 
-                                        </motion.div>
-                                    );
-                                })}
+                {popUp2 ?
+                    <YearsCarousel brand_name={props.brand_name} selectedModel={selectedModel} popUp2={popUp2} setPopUp2={setPopUp2} vehicleModel={vehicleModel} Years={Years} Colors={Colors} />
+                    :
+                    <>
+                        <h3 className="unbold">Vehicle Model</h3>
+                        <div className="popup__model__container">
+                            <motion.div ref={carousel} className="carousel">
+                                <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} whileTap={{ cursor: "grabbing" }} className="inner__carousel">
+                                    {props.vehicle.vehModels.map((model, i) => {
+                                        // console.log(model.modelName)
+                                        // if (selectedModel==""){
+                                        //     setSelectedModel(model.modelName)
+                                        // }
+                                        return (
+                                            <motion.div
+                                                key={i}
+                                                onClick={(e) => {
+                                                    handelClickSelectedModel(e, i);
+                                                    setSelectedModelIndex(i)
+                                                }}
+                                            >
+                                                <img className='popup__model__image'
+                                                    src={model.image}
+                                                    onError={(e) => { e.target.onerror = null; e.target.src = "/images/vehicle_cover_alt.jpg" }}
+                                                />
+                                                <h5
+                                                    className={`popup__model general_shadow`}
+                                                    style={{
+                                                        backgroundColor: isBlueRadio[`${i}`]
+                                                            ? "var(--primeblue)"
+                                                            : "var(--white)",
+                                                        color: isBlueRadio[`${i}`]
+                                                            ? "var(--white)"
+                                                            : "initial"
+                                                    }}
+                                                >{model.modelName}</h5>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </motion.div>
                             </motion.div>
-                        </motion.div>
-                    </div>
-                    {props.brand_name==="Tesla"?
-                        <div className="flex input__container">
-                            <label className="">VIN/RM No. </label>
-                            <input
-                                className="input__style"   
-                                placeholder="VIN / RM No. "
-                                type="text"
-                                value={VIN}
-                                onChange={(e) => {
-                                    setVIN(e.target.value)
-
-                                }}
-                                required 
-                            />
                         </div>
-                    :""}
-                    <br/>
+                        {props.brand_name === "Tesla" ?
+                            <div className="flex input__container">
+                                    <label className="">VIN/RM No. </label>
+                                <div className="flex inner_input_container ">
 
-                </>
+                                    <input
+                                        className="input__style"
+                                        placeholder="VIN / RM No. "
+                                        type="text"
+                                        value={VIN}
+                                        onChange={(e) => {
+                                            setVIN(e.target.value)
+
+                                        }}
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            : ""}
+                        <br />
+
+                    </> 
                 }
                 {popUp2 ? <motion.div className="">
-                    
+
                 </motion.div>
-                :                
-                <motion.div className="">
-                <div className="popup__model__container">
-                    <button className="btn btn__secondary general_shadow" onClick={() => props.setTrigger(false)} >Cancel</button>
-                    {showNext ? 
-                        <button className="btn btn__primary general_shadow" 
-                            onClick={()=>{
-                                setPopUp2(true)
-                            }}
-                            >Next</button>
-                        : ""}
-                    </div>
-                </motion.div> }
+                    :
+                    <motion.div className="">
+                        <div className="popup__model__container">
+                            <button className="btn btn__secondary general_shadow" onClick={() => props.setTrigger(false)} >Cancel</button>
+                            {showNext ?
+                                <button className="btn btn__primary general_shadow"
+                                    onClick={() => {
+                                        setPopUp2(true)
+                                    }}
+                                >Next</button>
+                                : ""}
+                        </div>
+                    </motion.div>}
             </div>
         </div>
     ) : "";

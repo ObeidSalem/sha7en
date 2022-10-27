@@ -38,14 +38,19 @@
     padding: 10px 10px ;
     border-radius: 5px;
     border: 0.5px solid #bbb;
-    width: fill;
-
-    max-width: 79vw;
+    width: 100%;
+    max-width: 100%;
 }
 
 .margin_right{
     margin-right: 10px;
 
+}
+
+.inner_input_container{
+    width: fill;
+    max-width: 80vw;
+    margin-right: 10px;
 }
 
 .inner__input__container{
@@ -75,10 +80,18 @@
         
     }
 
+    .input__container input, textarea, h5{
+        padding: 10px auto;
+        border-radius: 5px;
+        width: 100vw;
+    
+        max-width: 100%;
+    }
+
     .inner__input__container {
         flex-direction: row;
         /* flex-wrap: wrap; */
-        max-width: 10vw;
+        width: fill;
     }
 
     .btn_radio{

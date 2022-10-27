@@ -90,7 +90,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
 
             <div className="flex input__container">
                 <h3 className="unbold">Charger Port Type: </h3>
-                <div className="flex inner__input__container ">
+                <div className="flex inner_input_container ">
                     <input
                         className={`btn_radio btn btn__secondary input__style margin_right gray_font text_align_left p__text ${blueRadio1}`}
                         type="button"
@@ -145,7 +145,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
             <div className="flex input__container">
                 <br></br>
                 <h3 className="unbold">Service Option </h3>
-                <div className="flex inner__input__container ">
+                <div className="flex inner_input_container ">
                     <input
                         className={`btn_radio btn btn__secondary input__style margin_right gray_font text_align_left p__text ${blueRadio5}`}
                         type="button"
@@ -172,8 +172,13 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
                 </div>
             </div>
             <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
 
-            <motion.div className="">
+            {/* <motion.div className="">
                 <h3 className="unbold">Model Production</h3>
                 <div className="popup__model__container">
                     <motion.div ref={carousel} className="carousel">
@@ -187,7 +192,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
                                             setSelectedYearIndex(i)
                                         }}
                                     >
-                                        <h5
+                                        <h4
                                             className="popup__year input__style "
                                             style={{
                                                 backgroundColor: isYearRadio[`${i}`]
@@ -197,7 +202,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
                                                     ? "var(--white)"
                                                     : "initial"
                                             }}
-                                        >{year}</h5>
+                                        >{year}</h4>
                                         <br />
                                     </motion.div>
                                 );
@@ -205,9 +210,9 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
                         </motion.div>
                     </motion.div>
                 </div>
-            </motion.div>
+            </motion.div> */}
 
-            <motion.div className="">
+            {/* <motion.div className="">
                 <h3 className="unbold">Vehicle Color: {selectedColor}</h3>
                 <div className="popup__model__container">
                     <motion.div ref={carousel} className="carousel">
@@ -248,7 +253,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
                         </motion.div>
                     </motion.div>
                 </div>
-            </motion.div>
+            </motion.div> */}
             {isOnlyInstall ?
                 <motion.div className="">
                     <div className="popup__setPopUp2model__container">

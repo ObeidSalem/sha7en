@@ -28,6 +28,10 @@
 
 }
 
+.map__container{
+    width: 100%;
+}
+
 .popup__container .save__button{
     bottom: 22px;
     right: 130px;
@@ -63,6 +67,11 @@
     justify-content: space-between;
     max-width: 100%;
 
+}
+
+.map_container{
+    height: '60vh'; 
+    width: '50%'
 }
 
 .popup__is__charger__btn__container{

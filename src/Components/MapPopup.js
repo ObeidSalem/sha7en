@@ -8,7 +8,7 @@ const MapPopup = (props) => {
 
     const [targetBtn, setTargetBtn] = useState()
     const [popUp2, setPopUp2] = useState(false)
-
+ 
     return ( props.trigger) ?  (
         <div className="popup">
             <div className="popup__container left" style={{ height: '60vh', width: '50%' }} >
