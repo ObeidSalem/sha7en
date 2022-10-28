@@ -8,15 +8,23 @@ import React, {useEffect, useState} from 'react'
 const ChargersCards = (props) => {
 
     const stateVehicleModelVal = useLocation().state.stateVehicleModel;
-    
+    const stateChargerType = useLocation().state.stateChargerType;
+
+    console.log("stateVehicleModelVal",stateVehicleModelVal)
+    console.log("stateChargerType",stateChargerType)
+
     let compatible = []
 
     props.chargers.filter(charger => {
         
+        console.log("charger",charger)
         for (let i = 0; i < props.chargers.length; i++) {
-            if (charger.charger_id == stateVehicleModelVal[i]){
+            if (charger.charger_id == stateVehicleModelVal[i] ){
                 compatible.push(charger)
             }
+            // if (stateChargerType == charger.supportedPorts[i]){
+            //     compatible.push(charger)
+            // }
         }
 
     })

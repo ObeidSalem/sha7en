@@ -24,7 +24,7 @@ const Summary = ({ Address, chargers, fixedFees }) => {
     const charger = chargerArr[0];
 
     const stateAddressVal = useLocation().state.stateAddress;
-    const [Email, setEmail] = useState(useLocation().state.stateEmail)
+    const stateEmail = useLocation().state.stateEmail
     const stateName = useLocation().state.stateName;
     const statePhone = useLocation().state.statePhone;
     const stateHouseType = useLocation().state.stateHouseOwnership;
@@ -51,7 +51,7 @@ const Summary = ({ Address, chargers, fixedFees }) => {
 
     let data = {
         Address: stateAddressVal,
-        Email: Email,
+        Email: stateEmail,
         Name: stateName,
         Phone: statePhone,
         HouseType: stateHouseType,
@@ -74,14 +74,13 @@ const Summary = ({ Address, chargers, fixedFees }) => {
     }
 
 
-    setDoc(doc(interestedRef, Email), data);
     useEffect(() => {
         if (user) {
             setIsLogged(true)
-        } 
+        }
         else { setIsLogged(false) }
 
-      }, []);
+    }, []);
 
 
     return (
@@ -160,20 +159,20 @@ const Summary = ({ Address, chargers, fixedFees }) => {
                             <CurrencyFormat value={parseInt(fixedFees.site_visit_fee)} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
                         </h3>
                     </div>
-                    {isLogged?
-                    <Link state={{
-                        Email: Email,
-                        stateAddress: stateAddressVal
-                    }} to={`/sha7en/Checkout/${charger.charger_id}`}>
-                        <button id="btn__checkout" className="btn btn__primary margin__top"
-                            onClick={() => {
-                            }}
-                        >Checkout</button>
-                    </Link>
-                    :
+                    {isLogged ?
+                        <Link state={{
+                            Email: stateEmail,
+                            stateAddress: stateAddressVal
+                        }} to={`/sha7en/Checkout/${charger.charger_id}`}>
+                            <button id="btn__checkout" className="btn btn__primary margin__top"
+                                onClick={() => {
+                                }}
+                            >Checkout</button>
+                        </Link>
+                        :
                         <Link state={{
                             Address: stateAddressVal,
-                            Email: Email,
+                            Email: stateEmail,
                             Name: stateName,
                             Phone: statePhone,
                             HouseType: stateHouseType,
@@ -193,9 +192,12 @@ const Summary = ({ Address, chargers, fixedFees }) => {
                             CharBrand: stateCharBrand,
                             ChargerName: stateChargerName,
                             ChargerId: stateChargerId,
-                        }} Email={Email} to={`/sha7en/login/${charger.charger_id}`}>
+                        }} Email={stateEmail} to={`/sha7en/login/${charger.charger_id}`}>
                             <button id="btn__checkout" className="btn btn__primary margin__top"
                                 onClick={() => {
+                                    // if (data.Email) {
+                                    //     setDoc(doc(interestedRef, data.Email), data);
+                                    // }
                                 }}
                             >Checkout</button>
                         </Link>

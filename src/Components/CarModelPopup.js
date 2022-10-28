@@ -2,12 +2,13 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
 import YearsCarousel from '../Components/YearsCarousel';
-
+import { useSelector, useDispatch } from 'react-redux';
+import {SET_VEHICLE_MODEL} from '../actions';
 import "./Css/Popup.css"
 
 const CarModelPopup = (props) => {
-    // console.log(props)
-    // const [models1, setModels] = useState(props.vehicle.vehModels)
+    const dispatch = useDispatch();
+    const userVehicleModel = useSelector(state => state.vehicleModel)
 
     const [targetBtn, setTargetBtn] = useState()
     const [popUp2, setPopUp2] = useState(false)
@@ -21,14 +22,27 @@ const CarModelPopup = (props) => {
     const carousel = useRef();
 
     useEffect(() => {
-        // console.log(carousel.current.scrollwidth,  carousel.current.offsetWidth);
+        setSelectedModel(selectedModel)
+
+        if (selectedModel!==""){
+        console.log(carousel.current,  carousel.current.offsetWidth);
         // setWidth(carousel.current.scrollwidth - carousel.current.offsetWidth);
-        // handelClickSelectedModel()
+        }
+        
+        if (selectedModel!==""){
+            setYears(getManufactureYears(selectedModel))
+        }
 
-    }, []);
+    }, [selectedModel]);
+
+    // useEffect(() => {
+    //     console.log(carousel.current,  carousel.current);
+    //     // setWidth(carousel.current.scrollwidth - carousel.current.offsetWidth);
+
+    // }, [selectedModel]);
 
 
-    console.log("selectedModel", selectedModel)
+    // console.log("selectedModel", selectedModel)
     const [vehicleModel, setVehicleModel] = useState([123]);
     // const [compatibleChargers, setCompatibleChargers] = useState([123]);
     const [Years, setYears] = useState([2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012]);
@@ -84,7 +98,9 @@ const CarModelPopup = (props) => {
         // console.log(e);
         // console.log(e.target.outerText);
         setSelectedModel(e.target.outerText)
-        setYears(getManufactureYears(selectedModel))
+        // dispatch(SET_VEHICLE_MODEL(e.target.outerText))
+        // console.log(userVehicleModel)
+        // setYears(getManufactureYears(selectedModel))
         setIsBlueRadio(false);
         setIsBlueRadio(prevState => ({
             ...isBlueRadio,

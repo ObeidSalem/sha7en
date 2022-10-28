@@ -5,10 +5,7 @@ import Header_img_1 from '../images/Header_img_1.png'
 import Cards from '../Components/Cards';
 
 
-
 const Home = ({vehicles}) => {
-
-
 
     return ( 
         <>

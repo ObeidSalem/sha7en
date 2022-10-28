@@ -39,9 +39,8 @@ const Footer = ({ links }) => {
                             <a href="https://twitter.com/Sha7enAe?t=Mg5KrWiHZUNBMM2vDZK5dg&s=09">
                                 <AiOutlineTwitter className="iconsocial" />
                             </a>
-                            <a class="mailto"
-                                href="mailto:info@sha7en.ae"
-                                mail>
+                            <a className="mailto"
+                                href="mailto:info@sha7en.ae">
                                 <AiOutlineMail className="iconsocial" />
                             </a>
                         </div>

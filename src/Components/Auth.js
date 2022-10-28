@@ -130,29 +130,35 @@ const Auth = ({ chargers, Email }) => {
                     <hr className="margin__top " />
                     <div className="flex input__container">
                         <label className="">Email Address</label>
-                        <input
-                            className="input__style"
-                            placeholder="Email"
-                            type="email"
-                            value={email}
-                            onChange={(e) => {
-                                setEmail(e.target.value);
-                            }}
-                            required
-                        />
+                        <div className="flex inner__input__container ">
+                            <input
+                                className="input__style"
+                                placeholder="Email"
+                                type="email"
+                                value={email}
+                                onChange={(e) => {
+                                    setEmail(e.target.value);
+                                }}
+                                required
+                            />
+                        </div>
+
                     </div>
                     <div className="flex input__container">
                         <label className="">Password</label>
-                        <input
-                            className="input__style"
-                            placeholder="Password"
-                            type="password"
-                            value={password}
-                            onChange={(e) => {
-                                setPassword(e.target.value);
-                            }}
-                            required
-                        />
+                        <div className="flex inner__input__container ">
+                            <input
+                                className="input__style"
+                                placeholder="Password"
+                                type="password"
+                                value={password}
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                }}
+                                required
+                            />
+                        </div>
+
                     </div>
                     <button id="btn__checkout" className="btn btn__Auth btn__secondary margin__top" type="submit"
                         onClick={() => {

@@ -1,5 +1,5 @@
 .auth__content{
-    height: 75vh;
+    height: 80vh;
 
 }
 
@@ -43,7 +43,7 @@
     }
 
     .auth_card{
-        width: 100%;    
+        width: 85%;    
     }
     
 }

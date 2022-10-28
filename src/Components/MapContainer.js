@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { Map, GoogleApiWrapper, GoogleMapReact, } from 'google-maps-react';
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api"
-import { InfoWindow } from 'react-google-maps';
 
 
 const MapContainer = (props) => {
 
-    const [markerPosition, setMarkerPosition] = useState({ lat: props.latitude, lng: props.longitude, })
+    const [markerPosition, setMarkerPosition] = useState({lat: props.latitude, lng: props.longitude, })
     // let markerPosition= {lat: this.props.latitude, lng: this.props.longitude,}
 
     const mapContainerStyle = {
@@ -17,7 +16,7 @@ const MapContainer = (props) => {
         <>
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
-                zoom={15}
+                zoom={13}
                 center={markerPosition}
                 // initialCenter={{ lat: this.props.latitude, lng: this.props.longitude }}
                 onClick={(event) => {

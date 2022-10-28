@@ -108,15 +108,6 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
     }
 
 
-    const defaultProps = {
-        center: {
-            lati: 10.99835602,
-            lng: 77.01502627
-        },
-        zoom: 11
-    };
-
-
     // console.log(charger);
     // const { isLoaded } = useLoadScript({
     //     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
@@ -338,7 +329,6 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
                             <div className="flex input__container">
                                 <label className="">Email Address</label>
                                 <div className="flex inner__input__container ">
-
                                     <input
                                         className="input__style"
                                         placeholder="Email"
@@ -351,7 +341,6 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
                                         required
                                     />
                                 </div>
-
                             </div>
                             <div className="flex input__container">
                                 <label className="">Phone Number</label>
