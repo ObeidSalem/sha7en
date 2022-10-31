@@ -12,7 +12,7 @@ import {
   AiOutlineMail, AiOutlineHome,
   AiOutlineInfoCircle, AiOutlinePhone,
   AiFillInstagram, AiOutlineTwitter,
-  AiOutlineLinkedin, AiOutlineGlobal, AiOutlineMenu
+  AiOutlineLinkedin
 }
   from "react-icons/ai";
 // Images Used 
