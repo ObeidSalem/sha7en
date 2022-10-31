@@ -4,13 +4,7 @@
     display: flex;
 }
 
-.page_padding{
-    padding: 50px 130px 90px 130px;
-}
 
-.vehicles_title{
-    margin-bottom: 30px;
-}
 
 .text_align_left{
     text-align: justify;
@@ -67,10 +61,23 @@
 
 }
 
+/* Start Home PageTypes of car page */
 
 .home_vehicles{
     background-color: #f9f9f9;
-    width: 82%
+    width: 82%;
+
+}
+.page_padding{
+    padding: 50px 130px 90px 130px;
+}
+.vehicles_title_main{
+    text-align: center;
+    margin: auto;
+}
+.vehicles_title{
+    color:#000;
+    margin-bottom: 30px;
 }
 
 
@@ -80,7 +87,7 @@
     flex-wrap: wrap; 
     flex-direction: row;
     justify-content: space-between;
- 
+
 }
 
 .vehicle__container{
@@ -101,6 +108,8 @@
         -moz-box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,0.2);
             box-shadow: 0 4px 7px 0px  rgba(224, 224, 224,0.2);
 }
+/* End Home PageTypes of car page */
+
 
 .charger__container{
     max-width: 50%;

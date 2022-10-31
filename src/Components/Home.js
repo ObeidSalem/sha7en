@@ -1,13 +1,13 @@
-// import './Css/Home.css';
-import React,{ useState } from 'react'
-import HeaderLogo from '../images/Sha7enLogo_White_200.png'
-import Header_img_1 from '../images/Header_img_1.png'
+import './Css/Home.css';
+import React, { useState } from 'react'
 import Cards from '../Components/Cards';
+import { useTranslation } from "react-i18next";
+import i18next from 'i18next'
 
+const Home = ({ vehicles }) => {
+    const { t } = useTranslation()
 
-const Home = ({vehicles}) => {
-
-    return ( 
+    return (
         <>
             {/* <div className="home_Header page_padding">
                 <div className="left_Header">
@@ -22,20 +22,19 @@ const Home = ({vehicles}) => {
                     </div>
                 </div>
             </div> */}
-            <div className="home_vehicles page_padding text_align_left">
-                <h1 className="black_font vehicles_title">Vehicles</h1>
+            <div className="home_vehicles page_padding">
+                <div className='vehicles_title_main'>
+                    <h1 className=" vehicles_title">{ t('Types of vehicles')}</h1>
+                </div>
                 <div className="vehicles_container">
-                    <Cards 
+                    <Cards
                         vehicles={vehicles}
                     />
-                </div>
-                <div className="vehicles__container">
-                
                 </div>
             </div>
 
         </>
-     );
+    );
 }
- 
+
 export default Home;

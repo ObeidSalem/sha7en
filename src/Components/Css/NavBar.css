@@ -41,14 +41,16 @@
   transform: scale(0.9);
 }
 
-  
 .nav-links {
   color: #000;
   font-weight: 500;
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
-  border-bottom: 3px solid transparent;
+}
+
+.nav_links_login {
+  display: none;
 }
 .fa-code {
   margin-left: 1rem;
@@ -79,7 +81,7 @@
 .nav-icon {
   display: none;
 }
-.socialIcons{
+.socialIcons {
   display: none;
 }
 
@@ -87,17 +89,17 @@
   transform: scale(2);
 }
 
-.socialIcons_title p{
+.socialIcons_title p {
   font-size: 15px;
   padding: 1px;
   color: #d2dce8;
   margin-bottom: 10px;
 }
 
-.logoSidebar{
+.logoSidebar {
   display: none;
 }
-.switchertwo{
+.switchertwo {
   display: none;
 }
 @media screen and (max-width: 960px) {
@@ -106,7 +108,7 @@
     text-align: left;
     display: flex;
   }
-  .nav-logo{
+  .nav-logo {
     left: 0;
     padding-left: 15px;
     float: left;
@@ -127,16 +129,18 @@
   }
 
   .nav-menu.active {
-    background: linear-gradient(to right,#1B7CEC, #005CC6);
-
+    background: linear-gradient(to right, #1b7cec, #005cc6);
     left: 0px;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
   }
   .nav-item {
-    margin-top: 20px;
-    width: 100%;
+    display: block;
+    text-align: center;
+    align-items: center;
+    font-size: 14px;
+    margin: 0;
   }
 
   .nav-item .active {
@@ -144,17 +148,18 @@
   }
   .nav-links {
     text-align: center;
+    align-items: center;
     font-size: 15px;
     font-weight: 500;
     color: #000;
     border-radius: 8px;
-    border: 1px #005CC6 solid;
+    border: 1px #005cc6 solid;
     background-color: #f0ebeb;
   }
 
   .nav-icon {
     display: block;
-    position:absolute;
+    position: absolute;
     text-align: center;
     align-items: center;
     top: 0;
@@ -167,19 +172,18 @@
   .switcher {
     display: flex;
   }
-  .socialIcons{
+  .socialIcons {
     display: flex;
     margin: auto;
     color: #fff;
     cursor: pointer;
-    
   }
-  .socialIcons .socialIcons_items{
+  .socialIcons .socialIcons_items {
     padding: 5px;
     font-size: 20px;
   }
 
-  .logoSidebar{
+  .logoSidebar {
     display: table;
     margin-bottom: 10px;
     margin-top: 15px;
@@ -188,34 +192,44 @@
     align-items: center;
     text-align: center;
   }
-  .logoSidebar .nav_logo_sidebar{
+  .logoSidebar .nav_logo_sidebar {
     width: 80px;
   }
-  .switchertwo{
+  .switchertwo {
     display: flex;
     margin-bottom: 10px;
     margin-top: 15px;
     padding: 10px;
     align-items: center;
     text-align: center;
-   }
-
+  }
 }
 
-
-
 @media only screen and (max-width: 960px) {
-
-  .switchertwo{
+  .switchertwo {
     display: flex;
     color: #fff;
-    margin: auto;    
+    margin: auto;
     align-items: center;
     text-align: center;
     border-radius: 5px;
     background-color: #005cc6;
-   }
-   .swit{
+  }
+  .swit {
     display: none;
-   }
+  }
+  .nav_links_login {
+    display: block;
+    margin: auto;
+    font-size: 14px;
+    width: 50%;
+    text-decoration: none;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 1px solid #033e81;
+    border-radius: 5px;
+    padding: 6px;
+    background-color: #005cc6;
+    color: #fff;
+  }
 }

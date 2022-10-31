@@ -15,6 +15,7 @@ import {
   AiOutlineLinkedin
 }
   from "react-icons/ai";
+import { FaUserAlt } from "react-icons/fa";
 // Images Used 
 import logoen from '../images/Sha7enLogo_200.png';
 import logoar from '../images/arShahen.png';
@@ -66,6 +67,20 @@ const Navbar = () => {
             </div>
 
             {/* The links pages Navbar */}
+
+            <li className="">
+              <NavLink
+                exact
+                to="/sha7en/contact"
+                activeClassName="active"
+                className="nav_links_login"
+                onClick={handleClick}
+              >
+                <FaUserAlt style={{ color: '#fff' }} />&nbsp;{t(' Sign in/Sign up ')}
+              </NavLink>
+            </li>
+
+
             <li className="nav-item">
               <NavLink
                 exact
@@ -100,6 +115,8 @@ const Navbar = () => {
                 <AiOutlinePhone style={{ color: '#064288' }} />&nbsp;{t('Contact Us')}
               </NavLink>
             </li>
+
+      
             {/* Languages Switsher */}
             <div className="switchertwo">
               <Localization />
@@ -118,9 +135,12 @@ const Navbar = () => {
             </div>
           </ul>
 
+
           {/* Languages Switsher */}
           <div className="swit">
             <Localization />
+
+
           </div>
 
           {user &&

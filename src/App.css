@@ -26,31 +26,6 @@
   transition-timing-function: ease;
 }
 
-.white_font{
-  color: var(--white);
-}
-
-.black_font{
-  color: var(--primeblack);
-}
-
-.gray_font{
-  color: #646464;
-}
-
-.yellow_font{
-  color: var(--yellow);
-
-}
-
-.secondaryblue_font{
-  color: var(--secondaryblue);
-
-}
-
-.blue_font{
-  color: var(--primeblue);
-}
 
 .underline{
   text-decoration: underline;
