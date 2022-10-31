@@ -5,7 +5,7 @@ import * as React from 'react';
 
 import { AuthContextProvider, useAuth } from './context/AuthContext';
 
-import Navbar from './Components/Navbar';
+import Navbar from './Components/Navbar.js';
 import LandingPage from './Components/LandingPage';
 import Home from './Components/Home';
 import About from './pages/About';
