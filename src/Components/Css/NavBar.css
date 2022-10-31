@@ -1,68 +1,221 @@
 .navbar {
+  background-color: #fff;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.swit {
+  flex-grow: 1;
+}
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  max-width: 1500px;
+}
+
+.nav-logo {
+  align-items: center;
+  margin-left: 20px;
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.nav_logo_img {
+  text-align: center;
+}
+.nav-menu {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  margin-right: 2rem;
+}
+.nav-item:hover {
+  transform: scale(0.9);
+}
+
+  
+.nav-links {
+  color: #000;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  border-bottom: 3px solid transparent;
+}
+.fa-code {
+  margin-left: 1rem;
+}
+
+.nav-item {
+  line-height: 40px;
+  margin-right: 1rem;
+}
+
+.nav-item:after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0;
+  background: transparent;
+  transition: width 0.7s ease, background-color 0.5s ease;
+}
+
+.nav-item:hover:after {
+  width: 100%;
+}
+
+.nav-item .active {
+  color: #005cc6;
+}
+
+.nav-icon {
+  display: none;
+}
+.socialIcons{
+  display: none;
+}
+
+.socialIcons_items:hover {
+  transform: scale(2);
+}
+
+.socialIcons_title p{
+  font-size: 15px;
+  padding: 1px;
+  color: #d2dce8;
+  margin-bottom: 10px;
+}
+
+.logoSidebar{
+  display: none;
+}
+.switchertwo{
+  display: none;
+}
+@media screen and (max-width: 960px) {
+  .nav_logo_img {
+    width: 80px;
+    text-align: left;
     display: flex;
+  }
+  .nav-logo{
+    left: 0;
+    padding-left: 15px;
+    float: left;
+    position: absolute;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100vh;
+    border-top: 1pxsolid #fff;
+    position: absolute;
+    top: 0px;
+    left: -110%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: linear-gradient(to right,#1B7CEC, #005CC6);
+
+    left: 0px;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+  .nav-item {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .nav-item .active {
+    color: #000;
+  }
+  .nav-links {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+    border-radius: 8px;
+    border: 1px #005CC6 solid;
+    background-color: #f0ebeb;
+  }
+
+  .nav-icon {
+    display: block;
+    position:absolute;
+    text-align: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #005cc6;
+  }
+  .switcher {
+    display: flex;
+  }
+  .socialIcons{
+    display: flex;
+    margin: auto;
+    color: #fff;
+    cursor: pointer;
+    
+  }
+  .socialIcons .socialIcons_items{
+    padding: 5px;
+    font-size: 20px;
+  }
+
+  .logoSidebar{
+    display: table;
+    margin-bottom: 10px;
+    margin-top: 15px;
+
+    padding: 10px;
     align-items: center;
     text-align: center;
-    margin: 0 auto;
-    border-bottom: 1px solid var(--whiteshadow);
   }
-  
-  .navbar_container{
-    width: 100%;
-    margin: 0 70px;
+  .logoSidebar .nav_logo_sidebar{
+    width: 80px;
+  }
+  .switchertwo{
     display: flex;
-    flex-direction: row;
-    justify-content:flex-end;
-  
-  }
-  
-  .nav_links {
+    margin-bottom: 10px;
+    margin-top: 15px;
+    padding: 10px;
     align-items: center;
-    color: var(--primeblack);
-    width: fill;
+    text-align: center;
+   }
+
+}
+
+
+
+@media only screen and (max-width: 960px) {
+
+  .switchertwo{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .nav_item{
-    Padding: 40px;
-    cursor: pointer;
-    }
-  
-  .nav_item:link {
-    text-decoration: inherit;
-    color: inherit;
+    color: #fff;
+    margin: auto;    
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #005cc6;
+   }
+   .swit{
+    display: none;
+   }
 }
-
-.nav_item:visited {
-    text-decoration: inherit;
-    color: inherit;
-}
-  
-  .nav_logo{
-    width: 150px;
-  }
-  
-  .navbar it:hover {
-    color: var(--primeblue);
-  }
-
-  .auth_icon{
-    width: 30px;
-  }
-  
-  @media (max-width:1160px) {
-    .navbar_container{
-      margin: 0 10px;
-   
-    }
-  
-    .nav_logo{
-      width: 80px;
-    }
-  
-    .nav_item{
-      font-size: 1rem;
-      Padding: 20px 10px;
-    }
-  }

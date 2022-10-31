@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { BrowserRouter as Router, Route, Routes, useParams  } from 'react-router-dom';
 import './App.css';
 import { useState, useEffect } from 'react'
@@ -6,12 +5,12 @@ import * as React from 'react';
 
 import { AuthContextProvider, useAuth } from './context/AuthContext';
 
-import NavBar from './Components/NavBar';
+import Navbar from './Components/Navbar';
 import LandingPage from './Components/LandingPage';
 import Home from './Components/Home';
-import About from './Components/About';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import Partners from './Components/Partners';
-import Vehicles from './Components/Vehicles';
 import Chargers from './Components/Chargers';
 import ChargerDetails from './Components/ChargerDetails';
 import Summary from './Components/Summary';
@@ -20,14 +19,13 @@ import Auth from './Components/Auth';
 import AdminPanel from './Components/AdminPanel';
 import NotFound from './Components/NotFound';
 import Footer from './Components/Footer';
-
 import db from "./firebase"
 import uid from "uid"
 import {set, ref} from 'firebase/database'
 import {onSnapshot, collection, doc, setDoc, getDocs} from "firebase/firestore"
 
 
-
+import "./i18next";
 const App = () => {
 
   const [fixedFees, setFixedFees] = useState({})
@@ -117,13 +115,13 @@ const App = () => {
       <AuthContextProvider>
         <Router>
           <div className="App">
-          <NavBar />
+          <Navbar />
             <Routes>
                 <Route exact path='/sha7en/' element={<LandingPage />} />
                 <Route exact path='/sha7en/Home' element={<Home vehicles={vehicles}/>} />
                 <Route path='/sha7en/About' element={<About/>} />
                 <Route path='/sha7en/Partners' element={<Partners/>} />
-                <Route path='/sha7en/Vehicles' element={<Vehicles/>} />
+                <Route path='/sha7en/Contact' element={<Contact/>} />
                 <Route path='/sha7en/Chargers' element={<Chargers vehicles={vehicles} chargers={chargers} fixedFees={fixedFees}/>} />
                 <Route path='/sha7en/Chargers/:id' element={<ChargerDetails chargers={chargers} fixedFees={fixedFees}/>}  />
                 <Route path='/sha7en/Summary/:id' element={<Summary chargers={chargers} fixedFees={fixedFees}/>} />
@@ -134,6 +132,7 @@ const App = () => {
 
             </Routes>
             <Footer />
+
           </div>
         </Router>
       </AuthContextProvider>

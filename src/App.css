@@ -185,3 +185,11 @@ html, body{
     border-radius: 12px;
   }
 }
+
+/* remove scroll bar  */
+*{
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
