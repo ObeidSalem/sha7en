@@ -4609,6 +4609,11 @@
   "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-6.0.0.tgz"
   "version" "6.0.0"
 
+"dubai-font@^1.1.1":
+  "integrity" "sha512-hl5dViZxwQd9IJQnIEbPW7DxKQ7TPr8yWSXScEUFykTfN0UZ9xE34K501HifYfE1PYfnpWbs3PvbngLtWJ5L+Q=="
+  "resolved" "https://registry.npmjs.org/dubai-font/-/dubai-font-1.1.1.tgz"
+  "version" "1.1.1"
+
 "duplexer@^0.1.1":
   "integrity" "sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg=="
   "resolved" "https://registry.npmjs.org/duplexer/-/duplexer-0.1.2.tgz"

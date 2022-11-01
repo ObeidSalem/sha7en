@@ -6,6 +6,8 @@ import { v4 as uuidv4 } from "uuid";
 import { onSnapshot, collection, doc, setDoc, getDocs } from "firebase/firestore"
 import db from "../firebase"
 import { UserAuth } from '../context/AuthContext'
+import BookedPopup from './BookedPopup';
+
 
 
 
@@ -73,6 +75,9 @@ const Summary = ({ Address, chargers, fixedFees }) => {
         ChargerId: stateChargerId,
     }
 
+    const [targetBtn, setTargetBtn] = useState()
+    const [modelsBtnPopUp, setModelsBtnPopUp] = useState(false)
+
 
     useEffect(() => {
         if (user) {
@@ -84,9 +89,6 @@ const Summary = ({ Address, chargers, fixedFees }) => {
 
 
     return (
-        // <>
-        // yet underdevelopment
-        // </>
         <div className=" ">
             <div className="order__summary__header ">
                 <h3>Order Summary</h3>
@@ -117,7 +119,7 @@ const Summary = ({ Address, chargers, fixedFees }) => {
                     </p>
                 </div>
                 <div className="left fit__content checkout charger__cable__container general_shadow">
-                    <h3>Checkout</h3>
+                    <h3>Booking Summary</h3>
                     <hr className="margin__top " />
                     <br />
                     <h3 className="unbold ">Shipping Address</h3>
@@ -154,54 +156,66 @@ const Summary = ({ Address, chargers, fixedFees }) => {
                         </h4>
                     </div>
                     <div className="total margin__top">
-                        <h3 className="unbold ">Total to pay </h3>
+                        <h3 className="unbold ">Visit Site Fee</h3>
                         <h3 className="unbold ">
-                            <CurrencyFormat value={parseInt(fixedFees.site_visit_fee)} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
+                            Free
+                            {/* <CurrencyFormat value={parseInt(fixedFees.site_visit_fee)} displayType={'text'} thousandSeparator={true} prefix={'AED '} /> */}
                         </h3>
                     </div>
+                    <div className="total">
+                        <h6 className="unbold gray_font">The site survey team will issue invoices for the installation of the EV charger when visiting the site</h6>
+                    </div>
                     {isLogged ?
-                        <Link state={{
-                            Email: stateEmail,
-                            stateAddress: stateAddressVal
-                        }} to={`/sha7en/Checkout/${charger.charger_id}`}>
+                        // <Link state={{
+                        //     Email: stateEmail,
+                        //     stateAddress: stateAddressVal
+                        // }} to={`/sha7en/Checkout/${charger.charger_id}`}>
                             <button id="btn__checkout" className="btn btn__primary margin__top"
                                 onClick={() => {
+                                    setModelsBtnPopUp(true)
                                 }}
-                            >Checkout</button>
-                        </Link>
+                            >Confirm Visit Site Booking</button>
+                        // </Link>
                         :
-                        <Link state={{
-                            Address: stateAddressVal,
-                            Email: stateEmail,
-                            Name: stateName,
-                            Phone: statePhone,
-                            HouseType: stateHouseType,
-                            HouseOwnership: stateHouseOwnership,
-                            Lati: stateLati,
-                            Long: stateLong,
-                            Remarks: stateRemarks,
-                            Date: date,
+                        // <Link state={{
+                        //     Address: stateAddressVal,
+                        //     Email: stateEmail,
+                        //     Name: stateName,
+                        //     Phone: statePhone,
+                        //     HouseType: stateHouseType,
+                        //     HouseOwnership: stateHouseOwnership,
+                        //     Lati: stateLati,
+                        //     Long: stateLong,
+                        //     Remarks: stateRemarks,
+                        //     Date: date,
 
-                            VehicleModel: stateModel,
-                            VehicleBrand: stateBrand,
-                            VehicleProductionYear: stateProductionYear,
-                            VehicleColor: stateColor,
-                            ServiceType: stateServiceType,
-                            ChargerPort: stateChargerType,
+                        //     VehicleModel: stateModel,
+                        //     VehicleBrand: stateBrand,
+                        //     VehicleProductionYear: stateProductionYear,
+                        //     VehicleColor: stateColor,
+                        //     ServiceType: stateServiceType,
+                        //     ChargerPort: stateChargerType,
 
-                            CharBrand: stateCharBrand,
-                            ChargerName: stateChargerName,
-                            ChargerId: stateChargerId,
-                        }} Email={stateEmail} to={`/sha7en/login/${charger.charger_id}`}>
+                        //     CharBrand: stateCharBrand,
+                        //     ChargerName: stateChargerName,
+                        //     ChargerId: stateChargerId,
+                        // }} Email={stateEmail} to={`/sha7en/login/${charger.charger_id}`}>
                             <button id="btn__checkout" className="btn btn__primary margin__top"
                                 onClick={() => {
                                     // if (data.Email) {
                                     //     setDoc(doc(interestedRef, data.Email), data);
                                     // }
+
+                                    setModelsBtnPopUp(true)
                                 }}
-                            >Checkout</button>
-                        </Link>
+                            >Confirm Visit Site Booking</button>
+                        // </Link>
                     }
+                    <BookedPopup
+                        vehicle={targetBtn}
+                        trigger={modelsBtnPopUp}
+                        setTrigger={setModelsBtnPopUp}>
+                    </BookedPopup>
                 </div>
             </div>
         </div>

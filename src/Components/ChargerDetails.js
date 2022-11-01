@@ -444,7 +444,7 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
                                     stateChargerName: charger.chargerName,
                                     stateChargerId: charger.charger_id,
                                 }}
-                                    to={{ pathname: `/sha7en/Summary/${charger.charger_id}`, }}
+                                    to={{ pathname: `/sha7en/Login/${charger.charger_id}`, }}
                                 >
                                     <button className="btn btn__primary general_shadow p__text"
                                         onClick={() => {
