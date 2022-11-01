@@ -55,35 +55,35 @@ const ChargersList = ({ chargers, fixedFees, selectedModel, stateProps }) => {
                                         stateModel: stateProps.stateModel,
                                         stateBrand: stateProps.stateBrand,
                                         stateProductionYear: stateProps.stateProductionYear,
-                                        stateColor:stateProps.stateColor,
-                                        stateServiceType:stateProps.stateServiceType,
-                                        stateChargerType:stateProps.stateChargerType,
+                                        stateColor: stateProps.stateColor,
+                                        stateServiceType: stateProps.stateServiceType,
+                                        stateChargerType: stateProps.stateChargerType,
                                     }}
-                                    >View Product</Link>
+                                >View Product</Link>
+                            </div>
                         </div>
+                        {/* <br/>    */}
+                        <div className="popup__title">
+                            <h3 className="unbold h3__text left black_font">
+                                <CurrencyFormat value={parseInt(charger.charger_price) + parseInt(fixedFees.installation_fee) + parseInt(fixedFees.site_visit_fee)} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
+                            </h3>
+                        </div>
+                        <br />
+                        <p className="p__text left black_font">
+                            {charger.description}
+                        </p>
                     </div>
-                    {/* <br/>    */}
-                    <div className="popup__title">
-                        <h3 className="unbold h3__text left black_font">
-                            <CurrencyFormat value={parseInt(charger.charger_price) + parseInt(fixedFees.installation_fee) + parseInt(fixedFees.site_visit_fee)} displayType={'text'} thousandSeparator={true} prefix={'AED '} />
-                        </h3>
-                    </div>
-                    <br />
-                    <p className="p__text left black_font">
-                        {charger.description}
-                    </p>
                 </div>
-                </div>
-    ))
-}
-{/* <ChargerPopup 
+            ))
+            }
+            {/* <ChargerPopup 
                 // brand_name={BrandName}
                 // vehicle={targetBtn} 
                 trigger={isChargerBtnPopUp} 
                 setTrigger={setIsChargerBtnPopUp}>
             </ChargerPopup> */}
         </>
-     );
+    );
 }
 
 export default ChargersList;

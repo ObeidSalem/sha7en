@@ -2,12 +2,14 @@
 import ChargersList from '../Components/ChargersList';
 import {useLocation} from 'react-router-dom'
 import React, {useEffect, useState} from 'react'
+import { useSelector } from 'react-redux';
 
 
 
 const ChargersCards = (props) => {
 
-    const stateVehicleModelVal = useLocation().state.stateVehicleModel;
+    const userVehicleModel = useSelector(state => state.vehicleModel)
+    const stateVehicleModelVal = userVehicleModel.SupportedChargers;
     const stateChargerType = useLocation().state.stateChargerType;
 
     console.log("stateVehicleModelVal",stateVehicleModelVal)

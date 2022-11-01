@@ -91,7 +91,7 @@
 }
 
 .popup__model{
-    width: 300px;
+    width: 290px;
     margin: 5px;
     padding: 15px;
     border-radius: 0px 0px 5px 5px;
@@ -205,7 +205,7 @@
     }
 
     .popup__model{
-        width: 7rem;
+        width: 110px;
 
     }
 
