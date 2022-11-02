@@ -47,6 +47,8 @@
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
+  width: stretch;
+
 }
 
 .nav_links_login {
@@ -59,6 +61,7 @@
 .nav-item {
   line-height: 40px;
   margin-right: 1rem;
+  
 }
 
 .nav-item:after {
@@ -151,10 +154,13 @@
     align-items: center;
     font-size: 15px;
     font-weight: 500;
-    color: #000;
-    border-radius: 8px;
-    border: 1px #005cc6 solid;
-    background-color: #f0ebeb;
+    color: var(--white);
+    border-radius: 4px;
+    /* border: solid 1px var(--primeblue); */
+    /* background-color: var(--white); */
+    min-width: 80px;
+    height: 100px;
+
   }
 
   .nav-icon {
@@ -208,12 +214,11 @@
 @media only screen and (max-width: 960px) {
   .switchertwo {
     display: flex;
-    color: #fff;
     margin: auto;
     align-items: center;
     text-align: center;
     border-radius: 5px;
-    background-color: #005cc6;
+    background-color: var(--white);
   }
   .swit {
     display: none;

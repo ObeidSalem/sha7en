@@ -63,21 +63,21 @@ const Localization = () => {
         <div className="nav_links_left">
             <div className="switcher">
                 {/* Language switch dropdown here */}
-                
+
                 <GlobeIcon />
 
                 <select
                     onChange={handleChangeLocale}
                     value={language}
                     style={{
-                        border:'none',
+                        border: 'none',
                         padding: '1px',
                         fontSize: '14px',
                         background: 'none',
                         color: 'black',
                     }}
                 >
-<GlobeIcon />
+                    <GlobeIcon />
                     {languages.map(({ code, name, country_code }) => (
                         <option key={country_code} value={code}>
                             {name}

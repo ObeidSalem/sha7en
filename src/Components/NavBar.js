@@ -68,7 +68,7 @@ const Navbar = () => {
 
             {/* The links pages Navbar */}
 
-            <li className="">
+            {/* <li className="">
               <NavLink
                 exact
                 to="/sha7en/contact"
@@ -78,7 +78,7 @@ const Navbar = () => {
               >
                 <FaUserAlt style={{ color: '#fff' }} />&nbsp;{t(' Sign in/Sign up ')}
               </NavLink>
-            </li>
+            </li> */}
 
 
             <li className="nav-item">
@@ -89,7 +89,7 @@ const Navbar = () => {
                 className="nav-links"
                 onClick={handleClick}
               >
-                <AiOutlineHome style={{ color: '#064288' }} />&nbsp;{t('Home')}
+                <AiOutlineHome style={{ color: '#fff'}} />&nbsp;{t('Home')}
               </NavLink>
             </li>
             <li className="nav-item">
@@ -100,7 +100,7 @@ const Navbar = () => {
                 className="nav-links"
                 onClick={handleClick}
               >
-                <AiOutlineInfoCircle style={{ color: '#064288' }} />&nbsp;{t('About Us')}
+                <AiOutlineInfoCircle style={{ color: '#fff' }} />&nbsp;{t('About Us')}
               </NavLink>
             </li>
 
@@ -112,7 +112,7 @@ const Navbar = () => {
                 className="nav-links"
                 onClick={handleClick}
               >
-                <AiOutlinePhone style={{ color: '#064288' }} />&nbsp;{t('Contact Us')}
+                <AiOutlinePhone style={{ color: '#fff' }} />&nbsp;{t('Contact Us')}
               </NavLink>
             </li>
 
@@ -143,9 +143,9 @@ const Navbar = () => {
 
           </div>
 
-          {user &&
+          {/* {user &&
             <Icon className="auth_icon" icon="healthicons:ui-user-profile-outline" />
-          }
+          } */}
 
           {/*Icon Menue The link in html file */}
           <div className="nav-icon" onClick={handleClick}>

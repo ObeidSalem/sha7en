@@ -25,7 +25,7 @@ const HomeVehiclesList = ({vehicles}) => {
                             src={vehicle.image}
                             onError={(e)=>{e.target.onerror = null; e.target.src="/images/vehicle_cover_alt.jpg"}}
                         />                        
-                        <h2 className="h2__text left black_font">{vehicle.brand_name}</h2>
+                        <h1 className="h2__text left black_font">{vehicle.brand_name}</h1>
                         {/* <h3 className="h3__text left black_font">
                         {vehicle.details}
                         </h3> */}
