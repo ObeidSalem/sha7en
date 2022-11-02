@@ -17,11 +17,11 @@ import Summary from './Components/Summary';
 import Checkout from './Components/Checkout';
 import Auth from './Components/Auth';
 import AdminPanel from './Components/AdminPanel';
-import NotFound from './Components/NotFound';
+//import NotFound from './Components/NotFound';
 import Footer from './Components/Footer';
 import db from "./firebase"
-import uid from "uid"
-import {set, ref} from 'firebase/database'
+//import uid from "uid"
+//import {set, ref} from 'firebase/database'
 import {onSnapshot, collection, doc, setDoc, getDocs} from "firebase/firestore"
 
 
