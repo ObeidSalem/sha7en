@@ -3,12 +3,13 @@ import { motion } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
 import YearsCarousel from '../Components/YearsCarousel';
 import { useSelector, useDispatch } from 'react-redux';
-import {SET_VEHICLE_MODEL} from '../actions';
+import { SET_VEHICLE_MODEL, SET_VEHICLE_VIN, SET_SUPPORTED_CHARGERS } from '../actions';
 import "./Css/Popup.css"
 
 const CarModelPopup = (props) => {
     const dispatch = useDispatch();
     const userVehicleModel = useSelector(state => state.vehicleModel)
+    // console.log(userVehicleModel)
 
     const [targetBtn, setTargetBtn] = useState()
     const [popUp2, setPopUp2] = useState(false)
@@ -18,28 +19,9 @@ const CarModelPopup = (props) => {
     const [selectedModelIndex, setSelectedModelIndex] = useState();
     const [VIN, setVIN] = useState("");
 
-    const [width, setWidth] = useState(600);
+    const [width, setWidth] = useState(135);
     const carousel = useRef();
 
-    useEffect(() => {
-        setSelectedModel(selectedModel)
-
-        if (selectedModel!==""){
-        console.log(carousel.current,  carousel.current.offsetWidth);
-        // setWidth(carousel.current.scrollwidth - carousel.current.offsetWidth);
-        }
-        
-        if (selectedModel!==""){
-            setYears(getManufactureYears(selectedModel))
-        }
-
-    }, [selectedModel]);
-
-    // useEffect(() => {
-    //     console.log(carousel.current,  carousel.current);
-    //     // setWidth(carousel.current.scrollwidth - carousel.current.offsetWidth);
-
-    // }, [selectedModel]);
 
 
     // console.log("selectedModel", selectedModel)
@@ -60,9 +42,11 @@ const CarModelPopup = (props) => {
 
         console.log(modelFilter);
 
-        let VehicleModel = []
+        let SupportedChargers = []
         try {
-            VehicleModel = modelFilter.compatibleChargers;
+            SupportedChargers = modelFilter.compatibleChargers;
+            dispatch(SET_SUPPORTED_CHARGERS(SupportedChargers))
+
             setShowNext(true)
         } catch (err) {
             console.log(err.message);
@@ -82,9 +66,9 @@ const CarModelPopup = (props) => {
             console.log(err.message);
         }
 
-        console.log(productionYears, modelColors, VehicleModel);
+        console.log(productionYears, modelColors, SupportedChargers);
 
-        setVehicleModel(VehicleModel);
+        setVehicleModel(SupportedChargers);
         setYears(productionYears)
         setColors(modelColors)
 
@@ -98,7 +82,7 @@ const CarModelPopup = (props) => {
         // console.log(e);
         // console.log(e.target.outerText);
         setSelectedModel(e.target.outerText)
-        // dispatch(SET_VEHICLE_MODEL(e.target.outerText))
+        dispatch(SET_VEHICLE_MODEL(e.target.outerText))
         // console.log(userVehicleModel)
         // setYears(getManufactureYears(selectedModel))
         setIsBlueRadio(false);
@@ -108,6 +92,26 @@ const CarModelPopup = (props) => {
             [i]: !prevState[i],
         }))
     }
+
+    useEffect(() => {
+        setSelectedModel(selectedModel)
+
+        if (selectedModel !== "") {
+            setYears(getManufactureYears(selectedModel))
+        }
+
+    }, [selectedModel]);
+    
+    useEffect(() => {
+        if (props.trigger) {
+            if (window.innerWidth>1160){
+                setWidth (props.vehicle.vehModels.length*333-999)
+            } else {
+                setWidth (props.vehicle.vehModels.length*145-300)
+            }
+        }
+
+    }, [props.trigger]);
 
     return (props.trigger) ? (
         <div className="popup" >
@@ -139,10 +143,6 @@ const CarModelPopup = (props) => {
                             <motion.div ref={carousel} className="carousel">
                                 <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} whileTap={{ cursor: "grabbing" }} className="inner__carousel">
                                     {props.vehicle.vehModels.map((model, i) => {
-                                        // console.log(model.modelName)
-                                        // if (selectedModel==""){
-                                        //     setSelectedModel(model.modelName)
-                                        // }
                                         return (
                                             <motion.div
                                                 key={i}
@@ -168,13 +168,15 @@ const CarModelPopup = (props) => {
                                                 >{model.modelName}</h5>
                                             </motion.div>
                                         );
-                                    })}
+                                    }
+                                    )
+                                    }
                                 </motion.div>
                             </motion.div>
                         </div>
                         {props.brand_name === "Tesla" ?
                             <div className="flex input__container">
-                                    <label className="">VIN/RM No. </label>
+                                <label className="">VIN/RM No. </label>
                                 <div className="flex inner_input_container ">
 
                                     <input
@@ -184,7 +186,7 @@ const CarModelPopup = (props) => {
                                         value={VIN}
                                         onChange={(e) => {
                                             setVIN(e.target.value)
-
+                                            dispatch(SET_VEHICLE_VIN(e.target.value))
                                         }}
                                         required
                                     />
@@ -194,7 +196,7 @@ const CarModelPopup = (props) => {
                             : ""}
                         <br />
 
-                    </> 
+                    </>
                 }
                 {popUp2 ? <motion.div className="">
 

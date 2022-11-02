@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
-const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors, setPopUp2, popUp2 }) => {
+const YearsCarousel = ({ vehicleModel, brand_name, selectedModel,  Colors, setPopUp2, }) => {
     // const [selectedModel, setSelectedModel] = useState();
     const [selectedYear, setSelectedYear] = useState();
     const [selectedColor, setSelectedColor] = useState();

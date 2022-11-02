@@ -3,12 +3,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion';
 import { Link, useParams } from 'react-router-dom'
 import CurrencyFormat from 'react-currency-format';
-// import Geolocation from '../Components/Geolocation'
 import MapContainer from '../Components/MapContainer'
-import MapPopup from '../Components/MapPopup'
-// import { Map, GoogleApiWrapper } from 'google-map-react';
-import GoogleMapReact from 'google-map-react';
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { useLocation } from 'react-router-dom'
 
 
@@ -56,18 +51,12 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
 
     console.log(charger)
 
-    // const { isLoaded } = useLoadScript({
-    //     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-    // });
-
-    // if (!isLoaded) return <div>Loading...</div>;
-
     useEffect(() => {
         getPosition();
-        // showPosition();
     }, [])
 
 
+    const [showMap, setShowMap] = useState(false)
     const [targetBtn, setTargetBtn] = useState()
     const [modelsBtnPopUp, setModelsBtnPopUp] = useState(false)
 
@@ -103,6 +92,8 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
         setLong(long) // Using dispatch to modify long store state
 
         console.log(lati, long)
+        setShowMap(true)
+
 
         // convertToAddress(lati, long) // Will convert lati/long to City, State, & Zip code
     }
@@ -239,7 +230,7 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
                                     />
                                 </div>
                             </div>
-                            <div className="flex input__container">
+                            {showMap ? <div className="flex input__container">
                                 <br />
                                 <label className="">Address Geolocation</label>
                                 <div className="map__container left"  >
@@ -248,19 +239,8 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
 
                                 </div>
 
-                                <MapPopup
-                                    className="map_container"
-                                    vehicle={targetBtn}
-                                    trigger={modelsBtnPopUp}
-                                    setTrigger={setModelsBtnPopUp}
-                                    latitude={lati}
-                                    longitude={long}
-                                >
-                                </MapPopup>
+                            </div> : ""}
 
-
-
-                            </div>
                             <br />
                             <hr />
                         </motion.div>
@@ -464,7 +444,7 @@ const ChargerDetails = ({ chargers, fixedFees, stateProps }) => {
                                     stateChargerName: charger.chargerName,
                                     stateChargerId: charger.charger_id,
                                 }}
-                                    to={{ pathname: `/sha7en/Summary/${charger.charger_id}`, }}
+                                    to={{ pathname: `/sha7en/Login/${charger.charger_id}`, }}
                                 >
                                     <button className="btn btn__primary general_shadow p__text"
                                         onClick={() => {

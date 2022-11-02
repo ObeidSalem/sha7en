@@ -1,49 +1,38 @@
-.auth__content{
-    height: 80vh;
-
+.auth__content {
+  height: fit-content;
 }
 
-.auth__card__container{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-
-
+.auth__card__container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 #btn__checkout {
-    border:solid 0.5px var(--gray);
-
+  border: solid 0.5px var(--gray);
 }
 
 .btn__Auth {
-    width: 200px;
+  width: 200px;
 }
 
-
-
-
-.auth_card{
-    width: 350px;
-    text-align: left;
-
+.auth_card {
+  width: 350px;
+  text-align: left;
 }
 
-@media (max-width:1160px) {
+@media (max-width: 1160px) {
+  .auth__content {
+    margin: 30px 20px;
+  }
 
-    .auth__content{
-        margin: 30px 20px;
+  .auth__card__container {
+    width: fill;
+  }
 
-    }
-
-    .auth__card__container{
-        width: fill;
-    }
-
-    .auth_card{
-        width: 85%;    
-    }
-    
+  .auth_card {
+    width: 85%;
+  }
 }

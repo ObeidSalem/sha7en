@@ -56,7 +56,7 @@ const Auth = ({ chargers, Email }) => {
     const handleGoogleSignIn = async () => {
         try {
             await googleSignIn();
-            // navigate(`/sha7en/Checkout/${charger.charger_id}`)
+            navigate(`/sha7en/Summary/${charger.charger_id}`, { state: { stateAddress: stateAddressVal } });
         } catch (error) {
             console.log(error);
         }
@@ -73,6 +73,7 @@ const Auth = ({ chargers, Email }) => {
                 signup(email, password).then(() => {
                     resolve()
                     console.log("account has been created")
+                    navigate(`/sha7en/Summary/${charger.charger_id}`, { state: { stateAddress: stateAddressVal } });
                 })
             } else {
                 reject("Failed to create an account")
@@ -102,7 +103,7 @@ const Auth = ({ chargers, Email }) => {
                 // ServiceType: stateServiceType,
                 // ChargerPort: stateChargerType,
             });
-            navigate(`/sha7en/Checkout/${charger.charger_id}`, { state: { stateAddress: stateAddressVal } });
+            navigate(`/sha7en/Summary/${charger.charger_id}`, { state: { stateAddress: stateAddressVal } });
         } catch (err) {
             setError("Failed to create an account")
             console.log(err)
@@ -126,7 +127,7 @@ const Auth = ({ chargers, Email }) => {
             <div className="auth__card__container">
 
                 <div className="left fit__content auth_card charger__cable__container general_shadow">
-                    <h1 className="unbold">Sign In</h1>
+                    <h2 className="unbold">Sign In By Email</h2>
                     <hr className="margin__top " />
                     <div className="flex input__container">
                         <label className="">Email Address</label>
@@ -184,16 +185,19 @@ const Auth = ({ chargers, Email }) => {
                     <input onClick={() => handleSubmit({ id: uuidv4() })}
                         type="submit" id="signup__button" className="header__signUp" value="Sign Up"></input>F */}
                     <br />
-                    {/* <GoogleButton state={{ stateAddress: stateAddressVal }} onClick={handleGoogleSignIn} /> */}
+                    <br />
+                    <h2 className="unbold">Or Sign In With Google</h2>
+                    <hr className="margin__top " />
+                    <GoogleButton style={{ width: "fit" }} className="margin__top " state={{ stateAddress: stateAddressVal }} onClick={handleGoogleSignIn} />
                     <br />
                     {!user &&
                         <>
-                            <h1 className="unbold">Guest Checkout</h1>
+                            <h2 className="unbold">Guest Checkout</h2>
                             <hr className="margin__top " />
                             <p className="">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                             </p>
-                            <Link state={{ stateAddress: stateAddressVal }} to={`/sha7en/Checkout/${charger.charger_id}`}>
+                            <Link state={{ stateAddress: stateAddressVal }} to={`/sha7en/Summary/${charger.charger_id}`}>
                                 <button id="btn__checkout" className="btn btn__Auth btn__secondary margin__top"
                                     onClick={() => {
                                     }}
