@@ -56,7 +56,7 @@ const Auth = ({ chargers, Email }) => {
     const handleGoogleSignIn = async () => {
         try {
             await googleSignIn();
-            // navigate(`/sha7en/Summary/${charger.charger_id}`)
+            navigate(`/sha7en/Summary/${charger.charger_id}`, { state: { stateAddress: stateAddressVal } });
         } catch (error) {
             console.log(error);
         }
@@ -73,6 +73,7 @@ const Auth = ({ chargers, Email }) => {
                 signup(email, password).then(() => {
                     resolve()
                     console.log("account has been created")
+                    navigate(`/sha7en/Summary/${charger.charger_id}`, { state: { stateAddress: stateAddressVal } });
                 })
             } else {
                 reject("Failed to create an account")
@@ -187,7 +188,7 @@ const Auth = ({ chargers, Email }) => {
                     <br />
                     <h2 className="unbold">Or Sign In With Google</h2>
                     <hr className="margin__top " />
-                    <GoogleButton style={{width:"fit"}}className="margin__top " state={{ stateAddress: stateAddressVal }} onClick={handleGoogleSignIn} />
+                    <GoogleButton style={{ width: "fit" }} className="margin__top " state={{ stateAddress: stateAddressVal }} onClick={handleGoogleSignIn} />
                     <br />
                     {!user &&
                         <>
