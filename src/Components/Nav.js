@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
 import { NavLink } from "react-router-dom";
-import "../Components/Css/Navbar.css";
+import "../Components/Css/NavBar.css";
 import Localization from '../Components/Localization';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '@iconify/react';
