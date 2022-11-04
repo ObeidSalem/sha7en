@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Route, Routes, useParams  } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 import { useState, useEffect } from 'react'
 import * as React from 'react';
 
-import { AuthContextProvider, useAuth } from './context/AuthContext';
+import { AuthContextProvider} from './context/AuthContext';
 
-import Navbar from './Components/Nav';
+import Navbar from './Components/Navbar';
 import LandingPage from './Components/LandingPage';
 import Home from './Components/Home';
 import About from './pages/About';
@@ -22,7 +22,7 @@ import Footer from './Components/Footer';
 import db from "./firebase"
 //import uid from "uid"
 //import {set, ref} from 'firebase/database'
-import {onSnapshot, collection, doc, setDoc, getDocs} from "firebase/firestore"
+import {onSnapshot, collection, doc, setDoc} from "firebase/firestore"
 
 
 import "./i18next";

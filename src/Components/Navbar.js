@@ -28,6 +28,7 @@ const Navbar = () => {
 
   const { user, logOut } = UserAuth()
 
+  {/*
   const handleSignOut = async () => {
     try {
       await logOut()
@@ -36,6 +37,7 @@ const Navbar = () => {
       console.log(error)
     }
   }
+*/}
 
   const [click, setClick] = useState(false);
 

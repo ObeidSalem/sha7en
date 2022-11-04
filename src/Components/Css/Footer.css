@@ -76,6 +76,20 @@ h2 {
   color: #fff;
 }
 
+.iconsocial {
+  padding: 5px;
+  margin: 5px;
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--white);
+  border-radius: 19px;
+}
+
+.iconsocial:hover {
+  transform: scale(1.1);
+}
+
 
 @media screen and (min-width: 600px) {
   .r-footer > * {

@@ -20,35 +20,7 @@
   text-align: center;
 }
 
-.animation{
-  transition-property: all;
-  transition-duration: .7s;
-  transition-timing-function: ease;
-}
 
-
-.underline{
-  text-decoration: underline;
-
-}
-
-.pointer{
-  cursor: pointer;
-}
-
-.iconsocial {
-  padding: 5px;
-  margin: 5px;
-  color: #ffffff;
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--white);
-  border-radius: 19px;
-}
-
-.iconsocial:hover {
-  transform: scale(1.1);
-}
 
 .general_shadow{
   -webkit-box-shadow: 1px 2px 9px 1px  #e0e0e0;
@@ -79,6 +51,7 @@ html, body{
   overflow-x: hidden; 
 }
 
+/* Start Button style general */
 .btn_container {
   width: stretch;
 }
@@ -121,6 +94,8 @@ html, body{
   border:solid 1px var(--primeblue);
 
 }
+/* Button style general End */
+
 
 .unbold {
   font-weight:normal;
