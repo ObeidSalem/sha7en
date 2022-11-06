@@ -1,18 +1,18 @@
+import "../Components/Css/Navbar.css";
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
 import { NavLink } from "react-router-dom";
-import "../Components/Css/NavBar.css";
 import Localization from '../Components/Localization';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '@iconify/react';
-import i18next from 'i18next';
+import i18next from "i18next";
 // React icons 
 import {
   AiOutlineMail, AiOutlineHome,
   AiOutlineInfoCircle, AiOutlinePhone,
   AiFillInstagram, AiOutlineTwitter,
-  AiOutlineLinkedin
 }
   from "react-icons/ai";
 import { FaUserAlt } from "react-icons/fa";
@@ -42,6 +42,18 @@ const Navbar = () => {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+  const handleClickAway = () => setClick(false);
+
+  /*Switcher local */ 
+  const onChangeLanguage = checked => {
+    // if checked is false, French should be adopted
+    if (!checked) {
+      i18next.changeLanguage("ar");
+    } else {
+      i18next.changeLanguage("en");
+    }
+  };
+
   return (
     <>
       <nav className="navbar">
@@ -118,10 +130,10 @@ const Navbar = () => {
               </NavLink>
             </li>
 
-      
+
             {/* Languages Switsher */}
             <div className="switchertwo">
-              <Localization />
+              <Localization onChangeLanguage={onChangeLanguage} />
             </div>
 
 
@@ -132,7 +144,6 @@ const Navbar = () => {
                 <AiFillInstagram className="socialIcons_items" />
                 <AiOutlineTwitter className="socialIcons_items" />
                 <AiOutlineMail className="socialIcons_items" />
-                <AiOutlineLinkedin className="socialIcons_items" />
               </div>
             </div>
           </ul>
@@ -140,19 +151,20 @@ const Navbar = () => {
 
           {/* Languages Switsher */}
           <div className="swit">
-            <Localization />
-
-
+            <Localization onChangeLanguage={onChangeLanguage} />
           </div>
 
+          {/**/}
           {user &&
             <Icon className="auth_icon" icon="healthicons:ui-user-profile-outline" />
           }
 
           {/*Icon Menue The link in html file */}
-          <div className="nav-icon" onClick={handleClick}>
-            <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
-          </div>
+          <ClickAwayListener onClickAway={handleClickAway}>
+            <div className="nav-icon" onClick={handleClick}>
+              <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+            </div>
+          </ClickAwayListener>
 
         </div>
       </nav>
