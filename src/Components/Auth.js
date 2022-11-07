@@ -56,7 +56,9 @@ const Auth = ({ chargers, Email }) => {
     const handleGoogleSignIn = async () => {
         try {
             await googleSignIn();
-            navigate(`/sha7en/Summary/${charger.charger_id}`, { state: { stateAddress: stateAddressVal } });
+            if (user) {
+                navigate(`/sha7en/Summary/${charger.charger_id}`, { state: { stateAddress: stateAddressVal } });
+            }
         } catch (error) {
             console.log(error);
         }

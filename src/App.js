@@ -116,7 +116,7 @@ const App = () => {
         <Router>
           <div className="App">
           <Navbar />
-            <Routes>
+            <Routes id="content-wrap">
                 <Route exact path='/sha7en/' element={<LandingPage />} />
                 <Route exact path='/sha7en/Home' element={<Home vehicles={vehicles}/>} />
                 <Route path='/sha7en/About' element={<About/>} />

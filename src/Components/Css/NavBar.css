@@ -131,6 +131,10 @@
     transition: all 0.5s ease;
   }
 
+  .nav-item .active {
+    color: var(--white);
+  }
+
   .nav-menu.active {
     background: linear-gradient(to right, #1b7cec, #005cc6);
     left: 0px;
@@ -147,7 +151,7 @@
   }
 
   .nav-item .active {
-    color: #000;
+    /* color: #000; */
   }
   .nav-links {
     text-align: center;

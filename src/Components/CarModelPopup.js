@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
-import YearsCarousel from '../Components/YearsCarousel';
+import CarModelPopup2 from '../Components/CarModelPopup2';
 import { useSelector, useDispatch } from 'react-redux';
 import { SET_VEHICLE_MODEL, SET_VEHICLE_VIN, SET_SUPPORTED_CHARGERS } from '../actions';
 import "./Css/Popup.css"
@@ -135,7 +135,7 @@ const CarModelPopup = (props) => {
                 <hr></hr>
                 <br></br> */}
                 {popUp2 ?
-                    <YearsCarousel brand_name={props.brand_name} selectedModel={selectedModel} popUp2={popUp2} setPopUp2={setPopUp2} vehicleModel={vehicleModel} Years={Years} Colors={Colors} />
+                    <CarModelPopup2 brand_name={props.brand_name} selectedModel={selectedModel} popUp2={popUp2} setPopUp2={setPopUp2} vehicleModel={vehicleModel} Years={Years} Colors={Colors} />
                     :
                     <>
                         <h3 className="unbold">Vehicle Model</h3>
