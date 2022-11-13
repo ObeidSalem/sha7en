@@ -81,6 +81,10 @@
 .nav-icon {
   display: none;
 }
+
+.iconsMenue{
+  color: #064288;
+}
 .socialIcons {
   display: none;
 }
@@ -92,7 +96,7 @@
 .socialIcons_title p {
   font-size: 15px;
   padding: 1px;
-  color: #d2dce8;
+  color: #ECE41B;
   margin-bottom: 10px;
 }
 
@@ -162,19 +166,20 @@
   }
 
   .nav-item .active {
-    color: #000;
+    color: #d2dce8;
   }
   .nav-links {
     text-align: center;
     align-items: center;
     font-size: 15px;
     font-weight: 500;
-    color: #000;
+    color: #fff;
     border-radius: 8px;
-    border: 1px #005cc6 solid;
-    background-color: #f0ebeb;
+    background-color: #005cc6;
   }
-
+  .iconsMenue{
+    color: #fff;
+  }
   .nav-icon {
     display: block;
     position: absolute;
@@ -220,13 +225,18 @@
 @media only screen and (max-width: 960px) {
   .switchertwo {
     display: flex;
-    color: #005cc6;
     margin: auto;
     padding: 4px;
     align-items: center;
     text-align: center;
     border-radius: 5px;
-    background-color: #fff;
+  }
+  .GlobeIcon{
+    color: #fff;
+  }
+  .GlobeIcon_text{
+    color: #fff;
+
   }
   .swit {
     display: none;
@@ -239,7 +249,7 @@
     text-decoration: none;
     margin-bottom: 20px;
     margin-top: 20px;
-    border: 1px solid #033e81;
+    border: 1px solid #005cc6;
     border-radius: 5px;
     padding: 6px;
     background-color: #005cc6;
