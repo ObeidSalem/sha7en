@@ -12,7 +12,7 @@ import i18next from "i18next";
 import {
   AiOutlineMail, AiOutlineHome,
   AiOutlineInfoCircle, AiOutlinePhone,
-  AiFillInstagram, AiOutlineTwitter,
+  AiFillInstagram, AiOutlineTwitter,AiOutlineGlobal
 }
   from "react-icons/ai";
 import { FaUserAlt } from "react-icons/fa";
@@ -103,7 +103,7 @@ const Navbar = () => {
                 className="nav-links"
                 onClick={handleClick}
               >
-                <AiOutlineHome style={{ color: '#064288' }} />&nbsp;{t('Home')}
+                <AiOutlineHome className='iconsMenue' />&nbsp;{t('Home')}
               </NavLink>
             </li>
             <li className="nav-item">
@@ -114,7 +114,7 @@ const Navbar = () => {
                 className="nav-links"
                 onClick={handleClick}
               >
-                <AiOutlineInfoCircle style={{ color: '#064288' }} />&nbsp;{t('About Us')}
+                <AiOutlineInfoCircle className='iconsMenue' />&nbsp;{t('About Us')}
               </NavLink>
             </li>
 
@@ -126,7 +126,7 @@ const Navbar = () => {
                 className="nav-links"
                 onClick={handleClick}
               >
-                <AiOutlinePhone style={{ color: '#064288' }} />&nbsp;{t('Contact Us')}
+                <AiOutlinePhone className='iconsMenue'/>&nbsp;{t('Contact Us')}
               </NavLink>
             </li>
 
@@ -151,7 +151,8 @@ const Navbar = () => {
 
           {/* Languages Switsher */}
           <div className="swit">
-            <Localization onChangeLanguage={onChangeLanguage} />
+            <Localization 
+            onChangeLanguage={onChangeLanguage} />
           </div>
 
           {/**/}
