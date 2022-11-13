@@ -1,4 +1,4 @@
-import "../Components/Css/Navbar.css";
+import "../Components/Css/NavBar.css";
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
