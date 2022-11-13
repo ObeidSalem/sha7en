@@ -1,4 +1,4 @@
-import './Css/Navbar.css';
+import './Css/NavBar.css';
 
 import { Switch } from "antd";
 import React, { useEffect } from 'react'
