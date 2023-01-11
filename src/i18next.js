@@ -14,8 +14,10 @@ i18next
   .init({
     supportedLngs: ['en', 'ar'],
     lng: "en",
-    fallbackLng: 'en',
-    debug: false,
+    fallbackLng: 'false',
+    nsSeparator: false,
+    keySeparator: false,
+    debug: true,
     // Options for language detector
     detection: {
       order: ['path', 'localStorage', 'cookie', 'htmlTag'],
