@@ -23,7 +23,7 @@ i18next
             caches: ['cookie', 'localStorage'],
           },
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json'
+      loadPath: '/locales/{{lng}}/translation.json'
     }
 /*
     .init({
