@@ -11,6 +11,7 @@ i18next
   .use(HttpApi)
   .use(LanguageDetector)
   .use(initReactI18next)
+
   .init({
     supportedLngs: ['en', 'ar'],
     lng: "en",
@@ -18,15 +19,17 @@ i18next
     nsSeparator: false,
     keySeparator: false,
     debug: true,
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json'
+    },
     // Options for language detector
     detection: {
       order: ['path', 'localStorage', 'cookie', 'htmlTag'],
       caches: ['cookie', 'localStorage'],
     },
     // react: { useSuspense: false },
-    debug: true,
     whitelist: Languages,
-
+    useSuspense: false,
     interpolation: {
         escapeValue: false,
     }
