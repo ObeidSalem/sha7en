@@ -22,9 +22,32 @@ i18next
             order: ['path', 'localStorage', 'cookie', 'htmlTag'],
             caches: ['cookie', 'localStorage'],
           },
-    backend: {
-      loadPath: '/locales/{{lng}}/translation.json'
-    }
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
+      addPath: 'locales/add/{{lng}}/{{ns}}',
+      allowMultiLoading: false, 
+  // parse data after it has been fetched
+  // in example use https://www.npmjs.com/package/json5
+  // here it removes the letter a from the json (bad idea)
+  parse: function(data) { return data.replace(/a/g, ''); },
+
+  //parse data before it has been sent by addPath
+  parsePayload: function(namespace, key, fallbackValue) { return { key } },
+
+  // allow cross domain requests
+  crossDomain: false,
+
+  // allow credentials on cross domain requests
+  withCredentials: false,
+
+  // overrideMimeType sets request.overrideMimeType("application/json")
+  overrideMimeType: false,
+
+  // custom request headers sets request.setRequestHeader(key, value)
+  customHeaders: {
+    authorization: 'foo',
+    // ...
+  },
+    
 /*
     .init({
       supportedLngs: ['en', 'ar'],
