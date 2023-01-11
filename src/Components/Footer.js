@@ -20,7 +20,7 @@ const Footer = ({ links }) => {
 
         if (user) {
             console.log("user", user.email)
-            if(user.email == "o.salem322@gmail.com" || user.email == "hamzarhindi@gmail.com" || user.email == "ezsha7en@gmail.com" ){
+            if(user.email === "o.salem322@gmail.com" || user.email === "hamzarhindi@gmail.com" || user.email === "ezsha7en@gmail.com" ){
                 setIsAdmin(true)
             }
         } 
