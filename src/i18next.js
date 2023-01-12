@@ -15,11 +15,12 @@ i18next
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    supportedLngs: ['en', 'ar'],
     debug: true,
     lng: 'en',
     nsSeparator: false,
     keySeparator: false,
-    fallbackLng: false,
+    fallbackLng: 'en',
     // Options for language detector
     detection: {
       order: ['path', 'localStorage', 'cookie', 'htmlTag'],
@@ -27,13 +28,7 @@ i18next
     },
 
     allowMultiLoading: false,
-    webpack5: true,
-
-    webpack: (config) => {
-      config.resolve.fallback = { fs: false };
-      return config;
-    },
-
+    loadPath: `/locales/{{lng}}/{{ns}}.json`,
     /*
         .init({
           supportedLngs: ['en', 'ar'],
