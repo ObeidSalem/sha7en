@@ -29,7 +29,6 @@ i18next
 
     // Options for language detector
     detection: {
-      order: ['path', 'localStorage', 'cookie', 'htmlTag'],
       caches: ['cookie', 'localStorage'],
     },
     react: {
