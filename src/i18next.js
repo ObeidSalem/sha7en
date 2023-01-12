@@ -10,6 +10,7 @@ import Backend from 'i18next-http-backend';
 const Languages = ['en', 'ar'];
 
 i18next
+  .use(Backend)
   .use(HttpApi)
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -19,38 +20,38 @@ i18next
     nsSeparator: false,
     keySeparator: false,
     fallbackLng: false,
-          // Options for language detector
-          detection: {
-            order: ['path', 'localStorage', 'cookie', 'htmlTag'],
-            caches: ['cookie', 'localStorage'],
+    // Options for language detector
+    detection: {
+      order: ['path', 'localStorage', 'cookie', 'htmlTag'],
+      caches: ['cookie', 'localStorage'],
+    },
+
+    allowMultiLoading: false,
+    webpack5: true,
+
+    webpack: (config) => {
+      config.resolve.fallback = { fs: false };
+      return config;
+    },
+
+    /*
+        .init({
+          supportedLngs: ['en', 'ar'],
+          lng: "en",
+          fallbackLng: 'false',
+          nsSeparator: false,
+          keySeparator: false,
+          debug: true,
+          backend: {
+            loadPath: '/locales/{{lng}}/{{ns}}.json'
           },
-
-      allowMultiLoading: false, 
-      webpack5: true,
-
-      webpack: (config) => {
-        config.resolve.fallback = { fs: false };
-        return config;
-      },
-
-/*
-    .init({
-      supportedLngs: ['en', 'ar'],
-      lng: "en",
-      fallbackLng: 'false',
-      nsSeparator: false,
-      keySeparator: false,
-      debug: true,
-      backend: {
-        loadPath: '/locales/{{lng}}/{{ns}}.json'
-      },
-
-      // react: { useSuspense: false },
-      whitelist: Languages,
-      useSuspense: false,
-      interpolation: {
-          escapeValue: false,
-      }*/
+    
+          // react: { useSuspense: false },
+          whitelist: Languages,
+          useSuspense: false,
+          interpolation: {
+              escapeValue: false,
+          }*/
 
   })
 
