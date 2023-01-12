@@ -16,14 +16,9 @@ i18next
   .use(initReactI18next)
   .init({
     interpolation: {
-      // React already does escaping
       escapeValue: false
     },
     fallbackLng: 'en',
-    backend: {
-      loadPath: '/locales/{{lng}}/translation.json',
-      allowMultiLoading: true
-    },
 
     // Options for language detector
     detection: {
