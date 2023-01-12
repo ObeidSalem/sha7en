@@ -1,50 +1,36 @@
-
-
-
-
-
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import HttpApi from 'i18next-http-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
+import Backend from 'i18next-http-backend';
 
-const Languages = ['en', 'ar'];
+const fallbackLng = ['en'];
+const availableLanguages = ['en', 'ar'];
+
 
 i18next
-  .use(HttpApi)
+  .use(Backend)
+
   .use(LanguageDetector)
+
   .use(initReactI18next)
+
   .init({
+
+    fallbackLng: 'en',
+    debug: true,
+    whitelist: availableLanguages,
+
     interpolation: {
       escapeValue: false
     },
-    fallbackLng: 'en',
+
+
 
     // Options for language detector
     detection: {
       caches: ['cookie', 'localStorage'],
     },
-    interpolation: {
-      escapeValue: false 
-    }
-    /*
-        .init({
-          supportedLngs: ['en', 'ar'],
-          lng: "en",
-          fallbackLng: 'false',
-          nsSeparator: false,
-          keySeparator: false,
-          debug: true,
-          backend: {
-            loadPath: '/locales/{{lng}}/{{ns}}.json'
-          },
-    
-          // react: { useSuspense: false },
-          whitelist: Languages,
-          useSuspense: false,
-          interpolation: {
-              escapeValue: false,
-          }*/
+
 
   })
 
