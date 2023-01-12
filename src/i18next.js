@@ -15,20 +15,26 @@ i18next
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    supportedLngs: ['en', 'ar'],
-    debug: true,
+    interpolation: {
+      // React already does escaping
+      escapeValue: false
+    },
     lng: 'en',
-    nsSeparator: false,
-    keySeparator: false,
     fallbackLng: 'en',
+    backend: {
+      loadPath: '/locales/{{lng}}/translation.json',
+      allowMultiLoading: true
+    },
+    debug: true,
+
     // Options for language detector
     detection: {
       order: ['path', 'localStorage', 'cookie', 'htmlTag'],
       caches: ['cookie', 'localStorage'],
     },
-
-    allowMultiLoading: false,
-    loadPath: `/locales/{{lng}}/{{ns}}.json`,
+    react: {
+      wait: true
+    }
     /*
         .init({
           supportedLngs: ['en', 'ar'],
