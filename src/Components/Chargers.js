@@ -23,7 +23,7 @@ const Chargers = (props) => {
 
     return ( 
         <>
-            <div className="home_vehicles page_padding text_align_left">
+            <div className="home_vehicles page_padding">
                 {stateBrandVal && stateModelVal?
                     <h1 className="black_font vehicles_title">{stateBrandVal} {stateModelVal} Compatible Chargers</h1>
                 :

@@ -6,7 +6,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import {SET_VEHICLE_MODEL} from '../actions';
 import "./Css/Popup.css"
 
+
+import { useTranslation } from 'react-i18next';
+import i18next from "i18next";
+
+
 const CarModelPopup = (props) => {
+    const { t } = useTranslation();
+
     const dispatch = useDispatch();
     const userVehicleModel = useSelector(state => state.vehicleModel)
 
@@ -134,7 +141,7 @@ const CarModelPopup = (props) => {
                     <YearsCarousel brand_name={props.brand_name} selectedModel={selectedModel} popUp2={popUp2} setPopUp2={setPopUp2} vehicleModel={vehicleModel} Years={Years} Colors={Colors} />
                     :
                     <>
-                        <h3 className="unbold">Vehicle Model</h3>
+                        <h3 className="unbold">{t('Vehicle Model:')}</h3>
                         <div className="popup__model__container">
                             <motion.div ref={carousel} className="carousel">
                                 <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} whileTap={{ cursor: "grabbing" }} className="inner__carousel">
@@ -174,7 +181,7 @@ const CarModelPopup = (props) => {
                         </div>
                         {props.brand_name === "Tesla" ?
                             <div className="flex input__container">
-                                    <label className="">VIN/RM No. </label>
+                                    <label className="">{ t('VIN/RM No.')}</label>
                                 <div className="flex inner_input_container ">
 
                                     <input
@@ -202,13 +209,13 @@ const CarModelPopup = (props) => {
                     :
                     <motion.div className="">
                         <div className="popup__model__container">
-                            <button className="btn btn__secondary general_shadow" onClick={() => props.setTrigger(false)} >Cancel</button>
+                            <button className="btn btn__secondary general_shadow" onClick={() => props.setTrigger(false)} >{ t('Cancel')}</button>
                             {showNext ?
                                 <button className="btn btn__primary general_shadow"
                                     onClick={() => {
                                         setPopUp2(true)
                                     }}
-                                >Next</button>
+                                >{ t('Next')}</button>
                                 : ""}
                         </div>
                     </motion.div>}

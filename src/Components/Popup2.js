@@ -7,7 +7,14 @@ import YearsCarousel from '../Components/YearsCarousel';
 
 import "./Css/Popup.css"
 
+
+import { useTranslation } from 'react-i18next';
+import i18next from "i18next";
+
+
 const Popup2 = (props) => {
+    const { t } = useTranslation();
+
     // console.log(props)
     // const [models1, setModels] = useState(props.vehicle.vehModels)
     
@@ -72,7 +79,7 @@ const Popup2 = (props) => {
                 <br></br> */}
                 <div className="flex input__container">
                     <br></br>
-                        <h3 className="unbold">Charger Port Type: {ChargerType} </h3>
+                        <h3 className="unbold">{ t('Charger Port Type:')}{ChargerType} </h3>
                             <div className="flex inner__input__container ">
                                 <input 
                                     className="btn_radio btn btn__secondary input__style margin_right gray_font text_align_left p__text"
@@ -110,7 +117,7 @@ const Popup2 = (props) => {
                             </div>
                         </div>
                 <br></br>
-                <h3 className="unbold">Vehicle Model: {selectedModel}</h3>
+                <h3 className="unbold">{ t('Vehicle Model:')}{selectedModel}</h3>
                 <div className="popup__model__container">
                         <motion.div ref={carousel} className="carousel">
                             <motion.div drag="x" dragConstraints={{right: 0, left: -width}} whileTap={{cursor: "grabbing"}} className="inner__carousel">
@@ -139,7 +146,7 @@ const Popup2 = (props) => {
                 </div>
                 <div className="flex input__container">
                             <br></br>
-                            <h3 className="unbold">Charger Port Type: {ChargerType} </h3>
+                            <h3 className="unbold">{ t('Charger Port Type:')}{ChargerType} </h3>
                             <div className="flex inner__input__container ">
                                 <input 
                                     className="btn_radio btn btn__secondary input__style margin_right gray_font text_align_left p__text"
@@ -182,7 +189,7 @@ const Popup2 = (props) => {
                 : "" }
                 <motion.div className="">
                     <div className="popup__model__container">
-                        <button className="btn btn__secondary general_shadow" onClick={() => props.setTrigger(false)} >Cancel</button>
+                        <button className="btn btn__secondary general_shadow" onClick={() => props.setTrigger(false)} >{t('Cancel')}</button>
                         {ChargerType  ? ""
                             // <Link to="/sha7en/Chargers" modelName={selectedModel}>
                             //     <button className="btn btn__primary general_shadow" >Next</button>

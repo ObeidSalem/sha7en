@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import React, { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import { useTranslation } from 'react-i18next';
+import i18next from "i18next";
 
 const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors, setPopUp2, popUp2 }) => {
     // const [selectedModel, setSelectedModel] = useState();
@@ -29,6 +30,8 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
     const [isColorRadio, setIsColorRadio] = useState(false);
     const [selectedYearIndex, setSelectedYearIndex] = useState();
     const [selectedColorIndex, setSelectedColorIndex] = useState();
+    //localization
+    const { t } = useTranslation();
 
 
 
@@ -89,7 +92,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
 
 
             <div className="flex input__container">
-                <h3 className="unbold">Charger Port Type: </h3>
+                <h3 className="unbold">{ t('Charger Port Type:') }</h3>
                 <div className="flex inner_input_container ">
                     <input
                         className={`btn_radio btn btn__secondary input__style margin_right gray_font text_align_left p__text ${blueRadio1}`}
@@ -144,7 +147,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
 
             <div className="flex input__container">
                 <br></br>
-                <h3 className="unbold">Service Option </h3>
+                <h3 className="unbold">{ t('Service Options:')}</h3>
                 <div className="flex inner_input_container ">
                     <input
                         className={`btn_radio btn btn__secondary input__style margin_right gray_font text_align_left p__text ${blueRadio5}`}
@@ -260,7 +263,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
                         <div className="popup__model__container">
                             <button className="btn btn__secondary general_shadow"
                                 onClick={() => setPopUp2(false)}
-                            >Back</button>
+                            >{ t('Back')}</button>
                             {/* {isOnlyInstall?  */}
                             <Link to="/sha7en/Chargers/000" modelName={selectedModel}
                                 state={{
@@ -281,7 +284,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
                                         setPopUp2(false)
                                     }
                                     }
-                                >Next</button>
+                                >{ t('Next')}</button>
                             </Link>
                             {/* : ""} */}
                         </div>
@@ -292,7 +295,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
                     <div className="popup__model__container">
                         <button className="btn btn__secondary general_shadow"
                             onClick={() => setPopUp2(false)}
-                        >Back</button>
+                        >{ t('Back')}</button>
                         {selectedModel ?
                             <Link
                                 state={{
@@ -312,7 +315,7 @@ const YearsCarousel = ({ vehicleModel, brand_name, selectedModel, Years, Colors,
                                     onClick={() => {
                                         setPopUp2(false)
                                     }}
-                                >Next</button>
+                                >{ t('Next')}</button>
                             </Link>
                             : ""}
                     </div>

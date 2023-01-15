@@ -20,6 +20,13 @@
     "© 2022 | Copyright Sha7en.ae. | All rights reserved.": "  © 2022 | جميع الحقوق محفوظة لشركة شاحن | دولة الامارات  ",
     "Contact Us": "تواصل معنا",
     "Types of vehicles": "انـواع المركبات",
-    " Sign in/Sign up ":"تسجيل الدخول"
+    " Sign in/Sign up ":"تسجيل الدخول",
+    "Vehicle Model:":"موديل المركبة :",
+    "Charger Port Type:" :"نوع منفذ الشاحن:",
+    "Cancel":"إلغاء",
+    "VIN/RM No.":"رقم VIN/RM No",
+    "Next":"التالي",
+    "Service Options:":"خيارات الخدمة:",
+    "":""
 
 }

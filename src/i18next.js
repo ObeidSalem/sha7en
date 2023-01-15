@@ -12,15 +12,13 @@ i18next
 
   .init({
     fallbackLng: 'en',
-    debug: true,
-    defaultNS: 'translation',
+    debug: false,
     ns: ['translation'],
-
     backend: {
       loadPath: `${window.location.pathname}locales/{{lng}}/{{ns}}.json`
     },
     load: 'unspecific',
-
+    lng:'en',
 
 
     // Options for language detector
